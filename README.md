@@ -39,9 +39,23 @@ alify-theme/
 │   ├── widgets.php     # Widget areas (main sidebar + 4 footer columns)
 │   ├── image-sizes.php # Custom image sizes
 │   ├── excerpts.php    # Excerpt length + read-more
-│   ├── template-tags.php # Posted on/by, entry footer, post thumbnail
+│   ├── template-tags.php # Posted on/by, entry footer, terms, post thumbnail
 │   ├── enqueue.php     # Styles + scripts
 │   ├── customizer.php  # Customizer options (ALIFY Theme Options panel)
-│   └── security.php    # Security hardening
+│   ├── security.php    # Security hardening
+│   └── cpt/            # Custom post types — one file per CPT
+│       ├── services.php     # Services (single+archive, no taxonomy)
+│       ├── project.php      # Project (single+archive, + project_category)
+│       ├── teams.php        # Teams (single+archive, + team_category)
+│       ├── industries.php   # Industries (single+archive, + industry_category)
+│       ├── case_studies.php # Case Studies (single+archive, + case_study_category)
+│       ├── pricing.php      # Pricing (archive only, + pricing_category)
+│       ├── faqs.php         # FAQs (archive only, + faq_category)
+│       └── testimonials.php # Testimonials (archive only, + testimonial_category)
 └── assets/           # css, js, gsap, bootstrap, fonts, icons, images
 ```
+
+CPT templates at the root follow the WordPress template hierarchy:
+`single-{cpt}.php` for Services / Project / Teams / Industries / Case Studies and
+`archive-{cpt}.php` for all eight CPTs. Pricing, FAQs and Testimonials are
+archive-only: their single URLs 301-redirect to the archive.

@@ -29,3 +29,15 @@ require ALIFY_DIR . '/inc/template-tags.php'; // Reusable template tags.
 require ALIFY_DIR . '/inc/enqueue.php';     // Styles and scripts.
 require ALIFY_DIR . '/inc/customizer.php';  // Customizer theme options.
 require ALIFY_DIR . '/inc/security.php';    // Security hardening.
+
+/**
+ * Custom post types and taxonomies — one file per CPT.
+ */
+require ALIFY_DIR . '/inc/cpt/services.php';     // Services (no taxonomies).
+require ALIFY_DIR . '/inc/cpt/project.php';      // Projects + taxonomy.
+require ALIFY_DIR . '/inc/cpt/teams.php';        // Teams + taxonomy.
+require ALIFY_DIR . '/inc/cpt/industries.php';   // Industries + taxonomy.
+require ALIFY_DIR . '/inc/cpt/case_studies.php'; // Case Studies + taxonomy.
+require ALIFY_DIR . '/inc/cpt/pricing.php';      // Pricing (archive only) + taxonomy.
+require ALIFY_DIR . '/inc/cpt/faqs.php';         // FAQs (archive only) + taxonomy.
+require ALIFY_DIR . '/inc/cpt/testimonials.php'; // Testimonials (archive only) + taxonomy.

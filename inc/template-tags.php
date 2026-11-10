@@ -84,6 +84,24 @@ if ( ! function_exists( 'alify_entry_footer' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alify_entry_terms' ) ) {
+	/**
+	 * Print linked terms of the given taxonomies for the current post.
+	 *
+	 * @param string|array $taxonomies Taxonomy name or names.
+	 */
+	function alify_entry_terms( $taxonomies ) {
+		$terms = get_the_term_list( get_the_ID(), $taxonomies, '', esc_html__( ', ', 'alify' ) );
+
+		if ( ! is_wp_error( $terms ) && $terms ) {
+			printf(
+				'<span class="terms-links">%s</span>',
+				wp_kses_post( $terms )
+			);
+		}
+	}
+}
+
 if ( ! function_exists( 'alify_post_thumbnail' ) ) {
 	/**
 	 * Print the featured image (full on singles, linked card elsewhere).
