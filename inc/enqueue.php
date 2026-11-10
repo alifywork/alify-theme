@@ -13,9 +13,12 @@ if ( ! function_exists( 'alify_assets' ) ) {
 	 */
 	function alify_assets() {
 		// Styles.
-		wp_enqueue_style( 'bootstrap', ALIFY_URI . '/assets/bootstrap/css/bootstrap.min.css', array(), ALIFY_VERSION );
+		wp_enqueue_style( 'alify-variables', ALIFY_URI . '/assets/css/variable.css', array(), ALIFY_VERSION );
+		wp_enqueue_style( 'alify-fonts', ALIFY_URI . '/assets/css/font.css', array( 'alify-variables' ), ALIFY_VERSION );
+		wp_enqueue_style( 'bootstrap', ALIFY_URI . '/assets/bootstrap/css/bootstrap.min.css', array( 'alify-fonts' ), ALIFY_VERSION );
 		wp_enqueue_style( 'fontawesome', ALIFY_URI . '/assets/icons/css/all.min.css', array(), ALIFY_VERSION );
-		wp_enqueue_style( 'alify-style', ALIFY_URI . '/assets/css/style.css', array( 'bootstrap', 'fontawesome' ), ALIFY_VERSION );
+		wp_enqueue_style( 'alify-utility', ALIFY_URI . '/assets/css/utility.css', array( 'alify-variables', 'alify-fonts' ), ALIFY_VERSION );
+		wp_enqueue_style( 'alify-style', ALIFY_URI . '/assets/css/style.css', array( 'bootstrap', 'fontawesome', 'alify-utility' ), ALIFY_VERSION );
 
 		// Scripts (loaded in the footer).
 		wp_enqueue_script( 'bootstrap-bundle', ALIFY_URI . '/assets/bootstrap/js/bootstrap.bundle.min.js', array(), ALIFY_VERSION, true );
