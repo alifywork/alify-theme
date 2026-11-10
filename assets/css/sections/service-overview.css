@@ -15,7 +15,7 @@
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: url("../../../images/ripplewave/ripplewave-02.webp") center/cover no-repeat;
+	background: url("../../images/ripplewave/ripplewave-02.webp") center/cover no-repeat;
 	opacity: 0.08;
 	pointer-events: none;
 }

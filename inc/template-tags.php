@@ -90,12 +90,22 @@ if ( ! function_exists( 'alify_field' ) ) {
 	 *
 	 * @param string $key     Field name.
 	 * @param string $default Default when the field is empty or ACF is inactive.
-	 * @return string Field value or default.
+	 * @param string $key     ACF field name.
+	 * @param mixed  $default Default when the field is missing/empty.
+	 * @param int    $post_id Optional post ID (defaults to current post).
+	 * @return mixed Field value or default.
 	 */
-	function alify_field( $key, $default = '' ) {
+	function alify_field( $key, $default = '', $post_id = false ) {
 		if ( function_exists( 'get_field' ) ) {
-			$value = get_field( $key );
+			$value = ( false === $post_id ) ? get_field( $key ) : get_field( $key, $post_id );
+
+			if ( is_array( $value ) ) {
+				return ! empty( $value ) ? $value : $default;
+			}
 			if ( is_string( $value ) && '' !== trim( $value ) ) {
+				return $value;
+			}
+			if ( is_int( $value ) || is_float( $value ) ) {
 				return $value;
 			}
 		}
