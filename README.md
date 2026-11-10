@@ -39,6 +39,8 @@ ALIFY — WordPress theme.
 7. **Data mostly comes from CPTs.** The same data renders per context:
    cards/grids on archive pages, sliders/tabs/stacks on the home page. Query
    and template code must be written per section/use-case, not one-size-fits-all.
+8. **Blog uses WordPress's default Posts** (the built-in post type — no custom
+   post type for blogs): blog listing `home.php`, blog single `single-post.php`.
 
 ## Structure
 
