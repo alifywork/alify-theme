@@ -1,58 +1,56 @@
 <?php
 /**
- * Single Service template.
+ * Service single (/services/{service}/).
+ * Sections: hero -> overview -> process -> related projects -> quick quote CTA.
  *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
 
+// Section assets (before get_header() so styles print in the head).
+wp_enqueue_style( 'alify-page-hero', ALIFY_URI . '/assets/css/sections/page-hero.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-service-overview', ALIFY_URI . '/assets/css/sections/service-overview.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-process', ALIFY_URI . '/assets/css/sections/home/process.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-related-projects', ALIFY_URI . '/assets/css/sections/related-projects.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-contact-cta', ALIFY_URI . '/assets/css/sections/home/contact-cta.css', array( 'alify-style' ), ALIFY_VERSION );
+
+wp_enqueue_script( 'alify-page-hero', ALIFY_URI . '/assets/js/sections/page-hero.js', array( 'alify-main', 'gsap-splittext' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-service-overview', ALIFY_URI . '/assets/js/sections/service-overview.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-home-process', ALIFY_URI . '/assets/js/sections/home/process.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-related-projects', ALIFY_URI . '/assets/js/sections/related-projects.js', array( 'alify-main' ), ALIFY_VERSION, true );
+
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main alify-service-single">
 
 	<?php
 	while ( have_posts() ) :
 		the_post();
+
+		$alify_hero_image = get_the_post_thumbnail_url( get_the_ID(), 'alify-featured' );
+		$alify_hero_image = $alify_hero_image ? $alify_hero_image : ALIFY_URI . '/assets/images/neonline/neonline-05.webp';
+
+		get_template_part(
+			'template-parts/page-hero',
+			null,
+			array(
+				'title'    => get_the_title(),
+				'subtitle' => wp_strip_all_tags( (string) get_the_excerpt() ),
+				'image'    => $alify_hero_image,
+			)
+		);
 		?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<header class="entry-header">
-				<h1 class="entry-title"><?php echo esc_html( get_the_title() ); ?></h1>
-				<div class="entry-meta">
-					<?php
-					alify_posted_on();
-					alify_posted_by();
-					?>
-				</div>
-			</header>
+		<?php get_template_part( 'template-parts/service-overview' ); ?>
+		<?php get_template_part( 'template-parts/home/process' ); ?>
+		<?php get_template_part( 'template-parts/related-projects' ); ?>
+		<?php get_template_part( 'template-parts/home/contact-cta' ); ?>
 
-			<?php alify_post_thumbnail(); ?>
-
-			<div class="entry-content">
-				<?php
-				the_content();
-				wp_link_pages(
-					array(
-						'before' => '<nav class="page-links">' . esc_html__( 'Pages:', 'alify' ),
-						'after'  => '</nav>',
-					)
-				);
-				?>
-			</div>
-
-			<footer class="entry-footer">
-				<?php alify_entry_footer(); ?>
-			</footer>
-
-		</article>
-		<?php
-	endwhile;
-	?>
+	<?php endwhile; ?>
 
 </main>
 
 <?php
-get_sidebar();
 get_footer();

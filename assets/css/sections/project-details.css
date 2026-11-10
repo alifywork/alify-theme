@@ -1,0 +1,215 @@
+/**
+ * Section: Project Details (template-parts/project-details.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Responsive rules live in this same file.
+ */
+
+.alify-project-details {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-project-details::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-04.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-project-details .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-project-details__content {
+	color: var(--color-charcoal);
+	opacity: 0.78;
+	line-height: 1.9;
+	font-size: 1.05rem;
+}
+
+.alify-project-details__content p {
+	margin: 0 0 1.35rem;
+}
+
+.alify-project-details__content h2 {
+	font-size: 1.65rem;
+	color: var(--color-charcoal);
+	opacity: 1;
+	margin: 2.25rem 0 1rem;
+}
+
+.alify-project-details__stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+	margin: 2.75rem 0;
+}
+
+.alify-project-details__stat {
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 1.75rem 1.25rem;
+	text-align: center;
+	box-shadow: 0 14px 32px rgba(18, 21, 28, 0.06);
+}
+
+.alify-project-details__stat strong {
+	display: block;
+	font-size: 2.15rem;
+	font-weight: 700;
+	color: var(--color-accent);
+	line-height: 1.1;
+}
+
+.alify-project-details__stat span {
+	display: block;
+	margin-top: 0.5rem;
+	color: var(--color-charcoal);
+	opacity: 0.62;
+}
+
+.alify-project-details__gallery {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	margin: 2.75rem 0;
+}
+
+.alify-project-details__gallery-item {
+	margin: 0;
+	border-radius: 1rem;
+	overflow: hidden;
+}
+
+.alify-project-details__gallery-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Prev/next navigation. */
+.alify-project-details__nav {
+	display: flex;
+	justify-content: space-between;
+	gap: 1.5rem;
+	border-top: 1px solid rgba(18, 21, 28, 0.1);
+	margin-top: 3rem;
+	padding-top: 2rem;
+}
+
+.alify-project-details__nav-link {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	max-width: 46%;
+	text-decoration: none;
+	color: var(--color-charcoal);
+}
+
+.alify-project-details__nav-link small {
+	display: block;
+	opacity: 0.55;
+	margin-bottom: 0.25rem;
+}
+
+.alify-project-details__nav-link strong {
+	font-size: 1.05rem;
+	color: var(--color-charcoal);
+}
+
+.alify-project-details__nav-link--next {
+	text-align: right;
+	margin-left: auto;
+}
+
+.alify-project-details__nav-link i {
+	color: var(--color-accent);
+	transition: transform 0.3s ease;
+}
+
+.alify-project-details__nav-link:hover strong {
+	color: var(--color-accent);
+}
+
+.alify-project-details__nav-link--prev:hover i {
+	transform: translateX(-0.375rem);
+}
+
+.alify-project-details__nav-link--next:hover i {
+	transform: translateX(0.375rem);
+}
+
+/* Meta sidebar. */
+.alify-project-details__meta {
+	position: sticky;
+	top: 7rem;
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 1.75rem;
+	box-shadow: 0 14px 32px rgba(18, 21, 28, 0.06);
+}
+
+.alify-project-details__meta-item {
+	padding: 0.85rem 0;
+	border-bottom: 1px solid rgba(18, 21, 28, 0.08);
+}
+
+.alify-project-details__meta-item:last-child {
+	border-bottom: 0;
+}
+
+.alify-project-details__meta-item small {
+	display: block;
+	opacity: 0.55;
+	margin-bottom: 0.35rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.alify-project-details__meta-item strong {
+	color: var(--color-charcoal);
+	font-size: 1.05rem;
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.alify-project-details__meta {
+		position: static;
+		margin-bottom: 2.5rem;
+	}
+
+	.alify-project-details__stats {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-project-details {
+		padding: 4.5rem 0;
+	}
+
+	.alify-project-details__gallery {
+		grid-template-columns: 1fr;
+	}
+
+	.alify-project-details__nav {
+		flex-direction: column;
+	}
+
+	.alify-project-details__nav-link {
+		max-width: 100%;
+	}
+
+	.alify-project-details__nav-link--next {
+		text-align: left;
+		margin-left: 0;
+	}
+}
