@@ -84,6 +84,26 @@ if ( ! function_exists( 'alify_entry_footer' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alify_field' ) ) {
+	/**
+	 * ACF field value with a fallback default (ACF Pro is the content layer).
+	 *
+	 * @param string $key     Field name.
+	 * @param string $default Default when the field is empty or ACF is inactive.
+	 * @return string Field value or default.
+	 */
+	function alify_field( $key, $default = '' ) {
+		if ( function_exists( 'get_field' ) ) {
+			$value = get_field( $key );
+			if ( is_string( $value ) && '' !== trim( $value ) ) {
+				return $value;
+			}
+		}
+
+		return $default;
+	}
+}
+
 if ( ! function_exists( 'alify_entry_terms' ) ) {
 	/**
 	 * Print linked terms of the given taxonomies for the current post.

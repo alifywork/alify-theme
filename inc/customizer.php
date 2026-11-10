@@ -111,7 +111,7 @@ if ( ! function_exists( 'alify_customizer_css' ) ) {
 	 * Output Customizer values as CSS custom properties.
 	 */
 	function alify_customizer_css() {
-		$accent = sanitize_hex_color( get_theme_mod( 'alify_accent_color', '#0d6efd' ) );
+		$accent = sanitize_hex_color( get_theme_mod( 'alify_accent_color', '#E05A3A' ) );
 
 		if ( $accent ) {
 			printf(

@@ -1,0 +1,188 @@
+/**
+ * Section: Site Footer (footer.php).
+ * Responsive rules live in this same file.
+ */
+
+.site-footer {
+	background-color: var(--color-charcoal);
+	color: rgba(255, 255, 255, 0.72);
+	padding: 5rem 0 0;
+}
+
+.site-footer__top {
+	padding-bottom: 3.5rem;
+}
+
+.site-footer__logo img {
+	height: 40px;
+	width: auto;
+}
+
+.site-footer__about {
+	margin: 1.25rem 0;
+	line-height: 1.7;
+	font-size: 0.95rem;
+}
+
+.site-footer__heading {
+	color: var(--color-white);
+	font-size: 1.05rem;
+	font-weight: 600;
+	margin: 0 0 1.25rem;
+}
+
+.site-footer__links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.site-footer__links a {
+	color: rgba(255, 255, 255, 0.72);
+	text-decoration: none;
+	font-size: 0.95rem;
+	transition: color 0.25s ease;
+}
+
+.site-footer__links a:hover {
+	color: var(--color-accent);
+}
+
+/* Social menu: item classes carry the Font Awesome icon. */
+.social-menu {
+	list-style: none;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	display: flex;
+	gap: 0.75rem;
+}
+
+.social-menu li {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.08);
+	transition: background-color 0.25s ease;
+}
+
+.social-menu li:hover {
+	background-color: var(--color-accent);
+}
+
+.social-menu li a {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	text-indent: -9999px;
+	font-size: 0;
+}
+
+.social-menu li[class*="fa-"]::before {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-white);
+	font-size: 1rem;
+	pointer-events: none;
+}
+
+/* Newsletter form. */
+.newsletter-form {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.newsletter-form__input {
+	flex: 1;
+	min-width: 0;
+	padding: 0.75rem 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 0.375rem;
+	background-color: rgba(255, 255, 255, 0.06);
+	color: var(--color-white);
+	font-family: var(--font-primary);
+}
+
+.newsletter-form__input::placeholder {
+	color: rgba(255, 255, 255, 0.45);
+}
+
+.newsletter-form__input:focus {
+	outline: 2px solid var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.newsletter-form__submit {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.9rem;
+	height: 2.9rem;
+	border: 0;
+	border-radius: 0.375rem;
+	background-color: var(--color-accent);
+	color: var(--color-white);
+	cursor: pointer;
+	transition: background-color 0.25s ease;
+}
+
+.newsletter-form__submit:hover {
+	background-color: var(--color-amber);
+}
+
+/* Bottom bar. */
+.site-footer__bottom {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 1.5rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	font-size: 0.875rem;
+}
+
+.site-footer__bottom p {
+	margin: 0;
+}
+
+.site-footer__legal {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.site-footer__legal a {
+	color: rgba(255, 255, 255, 0.72);
+	text-decoration: none;
+}
+
+.site-footer__legal a:hover {
+	color: var(--color-accent);
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.site-footer {
+		padding-top: 3.5rem;
+	}
+
+	.site-footer__top > div {
+		margin-bottom: 2.25rem;
+	}
+
+	.site-footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

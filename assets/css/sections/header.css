@@ -1,0 +1,176 @@
+/**
+ * Section: Site Header (header.php).
+ * Responsive rules live in this same file.
+ */
+
+.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	padding: 1.25rem 0;
+	transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Over the hero: transparent with the light logo. */
+.site-header .site-logo__dark {
+	display: none;
+}
+
+.site-logo {
+	display: inline-block;
+	line-height: 0;
+}
+
+.site-logo__img {
+	height: 38px;
+	width: auto;
+}
+
+.header-nav-col {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1.5rem;
+}
+
+.header-nav {
+	display: none;
+}
+
+.header-menu {
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header-menu a {
+	color: var(--color-white);
+	font-weight: 500;
+	text-decoration: none;
+	font-size: 0.95rem;
+	transition: color 0.25s ease;
+}
+
+.header-menu a:hover,
+.header-menu .current-menu-item > a {
+	color: var(--color-accent);
+}
+
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.menu-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border: 0;
+	border-radius: 0.375rem;
+	background-color: rgba(255, 255, 255, 0.12);
+	color: var(--color-white);
+	font-size: 1.125rem;
+	cursor: pointer;
+}
+
+/* Sticky state: solid background, dark logo and dark links. */
+.site-header.is-sticky {
+	background-color: var(--color-white);
+	padding: 0.75rem 0;
+	box-shadow: 0 8px 30px rgba(18, 21, 28, 0.08);
+}
+
+.site-header.is-sticky .site-logo__light {
+	display: none;
+}
+
+.site-header.is-sticky .site-logo__dark {
+	display: block;
+}
+
+.site-header.is-sticky .header-menu a {
+	color: var(--color-charcoal);
+}
+
+.site-header.is-sticky .header-menu a:hover,
+.site-header.is-sticky .header-menu .current-menu-item > a {
+	color: var(--color-accent);
+}
+
+.site-header.is-sticky .menu-toggle {
+	background-color: rgba(18, 21, 28, 0.06);
+	color: var(--color-charcoal);
+}
+
+/* Mobile menu panel. */
+.mobile-menu {
+	position: fixed;
+	inset: 0;
+	z-index: 999;
+	background-color: var(--color-charcoal);
+	padding: 6.5rem 1.5rem 2.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	overflow-y: auto;
+}
+
+.mobile-menu[hidden] {
+	display: none;
+}
+
+.mobile-menu__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.mobile-menu__list a {
+	color: var(--color-white);
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.mobile-menu__list a:hover,
+.mobile-menu__list .current-menu-item > a {
+	color: var(--color-accent);
+}
+
+.mobile-menu__cta {
+	align-self: flex-start;
+}
+
+body.menu-open {
+	overflow: hidden;
+}
+
+/* Desktop. */
+@media (min-width: 992px) {
+	.header-nav {
+		display: block;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.mobile-menu {
+		display: none !important;
+	}
+
+	.site-logo__img {
+		height: 42px;
+	}
+}
