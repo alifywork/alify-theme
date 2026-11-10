@@ -12,10 +12,18 @@ defined( 'ABSPATH' ) || exit;
 wp_enqueue_style( 'alify-home-hero', ALIFY_URI . '/assets/css/sections/home/hero.css', array( 'alify-style' ), ALIFY_VERSION );
 wp_enqueue_style( 'alify-home-stats', ALIFY_URI . '/assets/css/sections/home/stats.css', array( 'alify-style' ), ALIFY_VERSION );
 wp_enqueue_style( 'alify-home-services', ALIFY_URI . '/assets/css/sections/home/services.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-work', ALIFY_URI . '/assets/css/sections/home/work.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-process', ALIFY_URI . '/assets/css/sections/home/process.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-case', ALIFY_URI . '/assets/css/sections/home/case-studies.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-home-industries', ALIFY_URI . '/assets/css/sections/home/industries.css', array( 'alify-style' ), ALIFY_VERSION );
 
 wp_enqueue_script( 'alify-home-hero', ALIFY_URI . '/assets/js/sections/home/hero.js', array( 'alify-main', 'gsap-splittext' ), ALIFY_VERSION, true );
 wp_enqueue_script( 'alify-home-stats', ALIFY_URI . '/assets/js/sections/home/stats.js', array( 'alify-main' ), ALIFY_VERSION, true );
 wp_enqueue_script( 'alify-home-services', ALIFY_URI . '/assets/js/sections/home/services.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-home-work', ALIFY_URI . '/assets/js/sections/home/work.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-home-process', ALIFY_URI . '/assets/js/sections/home/process.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-home-case', ALIFY_URI . '/assets/js/sections/home/case-studies.js', array( 'alify-main' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-home-industries', ALIFY_URI . '/assets/js/sections/home/industries.js', array( 'alify-main' ), ALIFY_VERSION, true );
 
 get_header();
 ?>
@@ -25,8 +33,12 @@ get_header();
 	<?php get_template_part( 'template-parts/home/hero' ); ?>
 	<?php get_template_part( 'template-parts/home/stats' ); ?>
 	<?php get_template_part( 'template-parts/home/services' ); ?>
+	<?php get_template_part( 'template-parts/home/work' ); ?>
+	<?php get_template_part( 'template-parts/home/process' ); ?>
+	<?php get_template_part( 'template-parts/home/case-studies' ); ?>
+	<?php get_template_part( 'template-parts/home/industries' ); ?>
 
-	<?php // Remaining home sections (work, process, case studies, industries, testimonials, pricing, FAQ, contact CTA) follow next. ?>
+	<?php // Remaining home sections (testimonials, pricing, FAQ, contact CTA) follow next. ?>
 
 </main>
 

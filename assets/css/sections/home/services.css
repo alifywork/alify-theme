@@ -25,32 +25,8 @@
 	z-index: 1;
 }
 
-.alify-section-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.625rem;
-	color: var(--color-accent);
-	font-size: 0.85rem;
-	font-weight: 700;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	margin: 0 0 1rem;
-}
-
-.alify-section-eyebrow::before {
-	content: "";
-	width: 2.25rem;
-	height: 2px;
-	background-color: var(--color-accent);
-}
-
 .alify-section-title {
-	font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-	font-weight: 700;
-	color: var(--color-charcoal);
-	line-height: 1.15;
-	margin: 0 0 3rem;
-	max-width: 22ch;
+	margin-bottom: 3rem;
 }
 
 .alify-services__list {
