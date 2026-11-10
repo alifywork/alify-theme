@@ -1,0 +1,50 @@
+/**
+ * Section: Contact Global Reach (template-parts/contact/global.php).
+ * Dark section with location cards.
+ * Responsive rules live in this same file.
+ */
+
+.alify-contact-global {
+	background-color: var(--color-charcoal);
+	padding: 5.5rem 0;
+}
+
+.alify-location-card {
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 1rem;
+	padding: 2.25rem 1.75rem;
+	margin-bottom: 1.5rem;
+	transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.alify-location-card:hover {
+	border-color: var(--color-accent);
+	transform: translateY(-5px);
+}
+
+.alify-location-card__icon {
+	color: var(--color-accent);
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.alify-location-card__city {
+	color: var(--color-white);
+	font-size: 1.35rem;
+	font-weight: 700;
+	margin: 0 0 0.5rem;
+}
+
+.alify-location-card__note {
+	color: rgba(255, 255, 255, 0.62);
+	margin: 0;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-contact-global {
+		padding: 4rem 0;
+	}
+}

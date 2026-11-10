@@ -1,0 +1,66 @@
+/**
+ * Section: Shared page hero (template-parts/page-hero.php).
+ * Dark section with the neonline background (image rule #9 — each page
+ * passes a different image).
+ * Responsive rules live in this same file.
+ */
+
+.alify-page-hero {
+	position: relative;
+	min-height: 62vh;
+	display: flex;
+	align-items: center;
+	background-color: var(--color-charcoal);
+	overflow: hidden;
+	padding: 9.5rem 0 5.5rem;
+}
+
+.alify-page-hero__bg {
+	position: absolute;
+	inset: -10% 0 0;
+}
+
+.alify-page-hero__bg img {
+	width: 100%;
+	height: 115%;
+	object-fit: cover;
+}
+
+.alify-page-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(18, 21, 28, 0.82) 0%, rgba(18, 21, 28, 0.68) 55%, rgba(18, 21, 28, 0.92) 100%);
+}
+
+.alify-page-hero .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-page-hero__title {
+	color: var(--color-white);
+	font-size: clamp(2.35rem, 5.2vw, 4.15rem);
+	font-weight: 700;
+	line-height: 1.1;
+	margin: 0 0 1.25rem;
+}
+
+.alify-page-hero__title .word {
+	display: inline-block;
+}
+
+.alify-page-hero__sub {
+	color: rgba(255, 255, 255, 0.78);
+	font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+	line-height: 1.75;
+	max-width: 58ch;
+	margin: 0;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-page-hero {
+		min-height: 52vh;
+		padding: 8rem 0 4rem;
+	}
+}

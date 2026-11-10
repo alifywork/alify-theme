@@ -26,7 +26,9 @@ if ( ! function_exists( 'alify_handle_quote_form' ) ) {
 
 		$name    = isset( $_POST['alify_quote_name'] ) ? sanitize_text_field( wp_unslash( $_POST['alify_quote_name'] ) ) : '';
 		$email   = isset( $_POST['alify_quote_email'] ) ? sanitize_email( wp_unslash( $_POST['alify_quote_email'] ) ) : '';
+		$phone   = isset( $_POST['alify_quote_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['alify_quote_phone'] ) ) : '';
 		$service = isset( $_POST['alify_quote_service'] ) ? sanitize_text_field( wp_unslash( $_POST['alify_quote_service'] ) ) : '';
+		$budget  = isset( $_POST['alify_quote_budget'] ) ? sanitize_text_field( wp_unslash( $_POST['alify_quote_budget'] ) ) : '';
 		$message = isset( $_POST['alify_quote_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['alify_quote_message'] ) ) : '';
 		$source  = isset( $_POST['alify_quote_source'] ) ? esc_url_raw( wp_unslash( $_POST['alify_quote_source'] ) ) : '';
 
