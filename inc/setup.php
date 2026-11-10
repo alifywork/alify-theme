@@ -15,6 +15,9 @@ if ( ! function_exists( 'alify_setup' ) ) {
 		// Let WordPress manage the document title.
 		add_theme_support( 'title-tag' );
 
+		// RSS feed links in <head>.
+		add_theme_support( 'automatic-feed-links' );
+
 		// Featured images.
 		add_theme_support( 'post-thumbnails' );
 
@@ -40,6 +43,19 @@ if ( ! function_exists( 'alify_setup' ) ) {
 
 		// Responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
+
+		// Block editor extras: front-end block styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Load the theme stylesheet into the block editor.
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'assets/css/style.css' );
+
+		// Live-preview widgets in the Customizer.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		// Block-based widgets.
+		add_theme_support( 'widgets-block-editor' );
 
 		// Max content width in pixels.
 		if ( ! isset( $GLOBALS['content_width'] ) ) {

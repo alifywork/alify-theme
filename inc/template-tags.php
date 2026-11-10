@@ -1,0 +1,110 @@
+<?php
+/**
+ * Reusable template tags.
+ *
+ * @package ALIFY
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+if ( ! function_exists( 'alify_posted_on' ) ) {
+	/**
+	 * Print the publish (and, if different, updated) date.
+	 */
+	function alify_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( DATE_W3C ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( DATE_W3C ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		printf(
+			'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
+			esc_html__( 'Posted on', 'alify' ),
+			esc_url( get_permalink() ),
+			$time_string // Escaped above.
+		);
+	}
+}
+
+if ( ! function_exists( 'alify_posted_by' ) ) {
+	/**
+	 * Print the post author with a link to their archive.
+	 */
+	function alify_posted_by() {
+		printf(
+			'<span class="byline">%1$s <a class="url fn n" href="%2$s">%3$s</a></span>',
+			esc_html__( 'by', 'alify' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		);
+	}
+}
+
+if ( ! function_exists( 'alify_entry_footer' ) ) {
+	/**
+	 * Print categories, tags, comments link and edit link.
+	 */
+	function alify_entry_footer() {
+		if ( 'post' === get_post_type() ) {
+			$categories = get_the_category_list( esc_html__( ', ', 'alify' ) );
+			if ( $categories ) {
+				printf(
+					'<span class="cat-links">%1$s %2$s</span>',
+					esc_html__( 'Posted in', 'alify' ),
+					wp_kses_post( $categories )
+				);
+			}
+
+			$tags = get_the_tag_list( '', esc_html__( ', ', 'alify' ) );
+			if ( $tags ) {
+				printf(
+					'<span class="tags-links">%1$s %2$s</span>',
+					esc_html__( 'Tagged', 'alify' ),
+					wp_kses_post( $tags )
+				);
+			}
+		}
+
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link( esc_html__( 'Leave a Comment', 'alify' ) );
+			echo '</span>';
+		}
+
+		edit_post_link( esc_html__( 'Edit', 'alify' ), '<span class="edit-link">', '</span>' );
+	}
+}
+
+if ( ! function_exists( 'alify_post_thumbnail' ) ) {
+	/**
+	 * Print the featured image (full on singles, linked card elsewhere).
+	 */
+	function alify_post_thumbnail() {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
+
+		if ( is_singular() ) :
+			?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( 'alify-featured' ); ?>
+			</div>
+			<?php
+		else :
+			?>
+			<a class="post-thumbnail" href="<?php echo esc_url( get_permalink() ); ?>" aria-hidden="true" tabindex="-1">
+				<?php the_post_thumbnail( 'alify-card', array( 'alt' => esc_attr( get_the_title() ) ) ); ?>
+			</a>
+			<?php
+		endif;
+	}
+}
