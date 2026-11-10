@@ -1,60 +1,55 @@
 <?php
 /**
- * Industries archive template.
+ * Industries archive (/industries/).
+ * Sections: hero -> industry icon cards -> CTA band.
  *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
 
+// Section assets (before get_header() so styles print in the head).
+wp_enqueue_style( 'alify-page-hero', ALIFY_URI . '/assets/css/sections/page-hero.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-industries-grid', ALIFY_URI . '/assets/css/sections/industries-grid.css', array( 'alify-style' ), ALIFY_VERSION );
+wp_enqueue_style( 'alify-cta-band', ALIFY_URI . '/assets/css/sections/cta-band.css', array( 'alify-style' ), ALIFY_VERSION );
+
+wp_enqueue_script( 'alify-page-hero', ALIFY_URI . '/assets/js/sections/page-hero.js', array( 'alify-main', 'gsap-splittext' ), ALIFY_VERSION, true );
+wp_enqueue_script( 'alify-industries-grid', ALIFY_URI . '/assets/js/sections/industries-grid.js', array( 'alify-main' ), ALIFY_VERSION, true );
+
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main alify-industries-page">
 
-	<header class="page-header">
-		<h1 class="page-title"><?php echo esc_html( post_type_archive_title( '', false ) ); ?></h1>
-	</header>
+	<?php
+	get_template_part(
+		'template-parts/page-hero',
+		null,
+		array(
+			'title'    => alify_field( 'industries_hero_title', __( 'Industries We Serve', 'alify' ) ),
+			'subtitle' => alify_field( 'industries_hero_sub', __( 'Deep experience across the sectors that shape the global economy — tailored strategies, never templates.', 'alify' ) ),
+			'image'    => ALIFY_URI . '/assets/images/neonline/neonline-10.webp',
+		)
+	);
+	?>
 
-	<?php if ( have_posts() ) : ?>
+	<?php get_template_part( 'template-parts/industries-grid' ); ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			?>
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-				<header class="entry-header">
-					<h2 class="entry-title">
-						<a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
-					</h2>
-				</header>
-
-				<?php alify_post_thumbnail(); ?>
-
-				<div class="entry-summary">
-					<?php echo wp_kses_post( get_the_excerpt() ); ?>
-				</div>
-
-				<footer class="entry-footer">
-					<?php alify_entry_terms( 'industry_category' ); ?>
-				</footer>
-
-			</article>
-			<?php
-		endwhile;
-
-		the_posts_navigation();
-		?>
-
-	<?php else : ?>
-
-		<p><?php esc_html_e( 'No industries found.', 'alify' ); ?></p>
-
-	<?php endif; ?>
+	<?php
+	get_template_part(
+		'template-parts/cta-band',
+		null,
+		array(
+			'title'       => __( 'Do Not See Your Industry?', 'alify' ),
+			'button_text' => __( 'Let’s Talk', 'alify' ),
+			'button_url'  => ( get_page_by_path( 'contact', OBJECT, 'page' ) instanceof WP_Post )
+				? (string) get_permalink( get_page_by_path( 'contact', OBJECT, 'page' ) )
+				: home_url( '/contact/' ),
+		)
+	);
+	?>
 
 </main>
 
 <?php
-get_sidebar();
 get_footer();

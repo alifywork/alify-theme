@@ -1,19 +1,26 @@
 <?php
 /**
- * Shared section: Related projects — 3 project cards + "View All" button.
- * Used on single templates (services, industries, ...). Excludes the
- * current post when shown on a project single.
+ * Shared section: Related content — 3 cards + "View All" button.
+ * Used on single templates. Args (optional): post_type ('project'),
+ * title, button_text. Excludes the current post when it matches post_type.
  *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$alify_exclude = ( get_post_type() === 'project' ) ? array( get_the_ID() ) : array();
+$alify_related_type = isset( $args['post_type'] ) ? (string) $args['post_type'] : 'project';
+if ( ! in_array( $alify_related_type, array( 'project', 'case_studies', 'services', 'industries', 'teams' ), true ) ) {
+	$alify_related_type = 'project';
+}
+$alify_related_title = isset( $args['title'] ) ? (string) $args['title'] : __( 'Projects You Might Like', 'alify' );
+$alify_related_btn   = isset( $args['button_text'] ) ? (string) $args['button_text'] : __( 'View All Projects', 'alify' );
+
+$alify_exclude = ( get_post_type() === $alify_related_type ) ? array( get_the_ID() ) : array();
 
 $alify_projects = get_posts(
 	array(
-		'post_type'      => 'project',
+		'post_type'      => $alify_related_type,
 		'posts_per_page' => 3,
 		'post_status'    => 'publish',
 		'post__not_in'   => $alify_exclude,
@@ -28,7 +35,7 @@ $alify_default_work = array(
 	array( 'Global E-commerce SEO', 'waveline-03' ),
 );
 
-$alify_work_url = (string) get_post_type_archive_link( 'project' );
+$alify_work_url = (string) get_post_type_archive_link( $alify_related_type );
 ?>
 
 <section class="alify-related-projects" id="alify-related-projects">

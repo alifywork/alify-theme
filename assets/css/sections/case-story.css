@@ -1,0 +1,121 @@
+/**
+ * Section: Case Story (template-parts/case-story.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Long-form content + sticky stats sidebar.
+ * Responsive rules live in this same file.
+ */
+
+.alify-case-story {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-case-story::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-08.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-case-story .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-case-story__content {
+	color: var(--color-charcoal);
+	opacity: 0.78;
+	line-height: 1.95;
+	font-size: 1.08rem;
+}
+
+.alify-case-story__content p {
+	margin: 0 0 1.5rem;
+}
+
+.alify-case-story__content h2 {
+	font-size: 1.75rem;
+	color: var(--color-charcoal);
+	opacity: 1;
+	margin: 2.5rem 0 1.15rem;
+}
+
+.alify-case-story__content blockquote {
+	border-left: 3px solid var(--color-accent);
+	margin: 2rem 0;
+	padding: 0.5rem 0 0.5rem 1.5rem;
+	font-size: 1.25rem;
+	color: var(--color-charcoal);
+	opacity: 0.9;
+}
+
+.alify-case-story__aside {
+	position: sticky;
+	top: 7rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.alify-case-story__stat {
+	background-color: var(--color-charcoal);
+	border-radius: 1.125rem;
+	padding: 2.25rem 1.75rem;
+	text-align: center;
+}
+
+.alify-case-story__stat strong {
+	display: block;
+	font-size: 3rem;
+	font-weight: 700;
+	color: var(--color-amber-light);
+	line-height: 1;
+}
+
+.alify-case-story__stat span {
+	display: block;
+	margin-top: 0.75rem;
+	color: rgba(255, 255, 255, 0.72);
+}
+
+.alify-case-story__meta {
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 1.35rem 1.5rem;
+	box-shadow: 0 12px 28px rgba(18, 21, 28, 0.06);
+}
+
+.alify-case-story__meta small {
+	display: block;
+	opacity: 0.55;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	margin-bottom: 0.35rem;
+}
+
+.alify-case-story__cta {
+	width: 100%;
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.alify-case-story__aside {
+		position: static;
+		margin-top: 2.75rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-case-story {
+		padding: 4.5rem 0;
+	}
+
+	.alify-case-story__stat strong {
+		font-size: 2.5rem;
+	}
+}

@@ -1,12 +1,17 @@
 <?php
 /**
  * Shared section: Service overview — content column + "What's Included"
- * feature list (ACF-ready).
+ * feature list (ACF-ready). Args (optional): heading (printf pattern with
+ * %s for the post title).
  *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$alify_overview_heading = isset( $args['heading'] ) && '' !== (string) $args['heading']
+	? (string) $args['heading']
+	: __( 'How We Deliver %s', 'alify' );
 
 $alify_features = function_exists( 'get_field' ) ? get_field( 'features' ) : '';
 $alify_features = is_array( $alify_features ) ? $alify_features : array();
@@ -31,8 +36,7 @@ if ( ! $alify_features ) {
 				<p class="alify-section-eyebrow"><?php esc_html_e( 'Overview', 'alify' ); ?></p>
 				<h2 class="alify-section-title">
 					<?php
-					/* translators: %s: service name. */
-					printf( esc_html__( 'How We Deliver %s', 'alify' ), esc_html( get_the_title() ) );
+					printf( esc_html( $alify_overview_heading ), esc_html( get_the_title() ) );
 					?>
 				</h2>
 				<div class="alify-service-overview__content">
