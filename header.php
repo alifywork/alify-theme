@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php the_custom_logo(); ?>
 			<?php else : ?>
 				<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<?php bloginfo( 'name' ); ?>
+					<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 				</a>
 			<?php endif; ?>
 		</div>

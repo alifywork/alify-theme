@@ -22,12 +22,12 @@ get_header();
 
 				<header class="entry-header">
 					<h2 class="entry-title">
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_the_title() ); ?></a>
 					</h2>
 				</header>
 
 				<div class="entry-summary">
-					<?php the_excerpt(); ?>
+					<?php echo wp_kses_post( get_the_excerpt() ); ?>
 				</div>
 
 			</article>

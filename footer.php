@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 		</nav>
 
 		<p class="site-info">
-			&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>
+			&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 		</p>
 
 	</footer>
