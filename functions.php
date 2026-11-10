@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Theme constants.
  */
-define( 'ALIFY_VERSION', '1.0.0' );
+define( 'ALIFY_VERSION', '1.1.0' );
 define( 'ALIFY_DIR', get_template_directory() );
 define( 'ALIFY_URI', get_template_directory_uri() );
 
@@ -28,6 +28,8 @@ require ALIFY_DIR . '/inc/excerpts.php';    // Excerpt length and read-more.
 require ALIFY_DIR . '/inc/template-tags.php'; // Reusable template tags.
 require ALIFY_DIR . '/inc/enqueue.php';     // Styles and scripts.
 require ALIFY_DIR . '/inc/customizer.php';  // Customizer theme options.
+require ALIFY_DIR . '/inc/rewrites.php';    // Permalink/rewrite flushing.
+require ALIFY_DIR . '/inc/seo.php';         // SEO: sitemap hygiene.
 require ALIFY_DIR . '/inc/security.php';    // Security hardening.
 
 /**

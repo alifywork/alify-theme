@@ -59,3 +59,20 @@ CPT templates at the root follow the WordPress template hierarchy:
 `single-{cpt}.php` for Services / Project / Teams / Industries / Case Studies and
 `archive-{cpt}.php` for all eight CPTs. Pricing, FAQs and Testimonials are
 archive-only: their single URLs 301-redirect to the archive.
+
+## URL structure (SEO: category names in URLs, no machine slugs)
+
+| Content  | Single URL              | Archive        | Category URL                 |
+|----------|-------------------------|----------------|------------------------------|
+| Services | `/services/{service}/`  | `/services/`   | —                            |
+| Project  | `/project/{project}/`   | `/projects/`   | `/projects/{category}/`      |
+| Teams    | `/team/{member}/`       | `/teams/`      | `/teams/{category}/`         |
+| Industries | `/industry/{item}/`   | `/industries/` | `/industries/{category}/`    |
+| Case Studies | `/case-study/{study}/` | `/case-studies/` | `/case-studies/{category}/` |
+| Pricing  | none (301 to archive)   | `/pricing/`    | `/pricing/{category}/`       |
+| FAQs     | none (301 to archive)   | `/faqs/`       | `/faqs/{category}/`          |
+| Testimonials | none (301 to archive) | `/testimonials/` | `/testimonials/{category}/` |
+
+Taxonomy identifiers (`project_category` etc.) never appear in URLs — category
+pages always show the category's own slug. Singles and category archives use
+distinct base segments so rewrite rules can never collide.

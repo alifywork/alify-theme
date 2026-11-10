@@ -2,10 +2,49 @@
 /**
  * Teams custom post type + taxonomy.
  *
+ * URL structure:
+ * - Single:  /team/{member-slug}/
+ * - Archive: /teams/
+ * - Category:/teams/{category-slug}/   (category name in URL, no machine slugs)
+ *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
+
+if ( ! function_exists( 'alify_register_taxonomy_team_category' ) ) {
+	/**
+	 * Register the Team Category taxonomy (e.g. departments).
+	 */
+	function alify_register_taxonomy_team_category() {
+		register_taxonomy(
+			'team_category',
+			array( 'teams' ),
+			array(
+				'labels'            => array(
+					'name'              => esc_html__( 'Team Categories', 'alify' ),
+					'singular_name'     => esc_html__( 'Team Category', 'alify' ),
+					'search_items'      => esc_html__( 'Search Team Categories', 'alify' ),
+					'all_items'         => esc_html__( 'All Team Categories', 'alify' ),
+					'parent_item'       => esc_html__( 'Parent Team Category', 'alify' ),
+					'parent_item_colon' => esc_html__( 'Parent Team Category:', 'alify' ),
+					'edit_item'         => esc_html__( 'Edit Team Category', 'alify' ),
+					'update_item'       => esc_html__( 'Update Team Category', 'alify' ),
+					'add_new_item'      => esc_html__( 'Add New Team Category', 'alify' ),
+					'new_item_name'     => esc_html__( 'New Team Category Name', 'alify' ),
+					'menu_name'         => esc_html__( 'Categories', 'alify' ),
+				),
+				'hierarchical'      => true,
+				'public'            => true,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_rest'      => true,
+				'rewrite'           => array( 'slug' => 'teams', 'with_front' => false ),
+			)
+		);
+	}
+}
+add_action( 'init', 'alify_register_taxonomy_team_category', 10 );
 
 if ( ! function_exists( 'alify_register_cpt_teams' ) ) {
 	/**
@@ -40,7 +79,7 @@ if ( ! function_exists( 'alify_register_cpt_teams' ) ) {
 				'show_in_menu'    => true,
 				'show_in_rest'    => true,
 				'query_var'       => true,
-				'rewrite'         => array( 'slug' => 'teams', 'with_front' => false ),
+				'rewrite'         => array( 'slug' => 'team', 'with_front' => false ),
 				'capability_type' => 'post',
 				'has_archive'     => 'teams',
 				'hierarchical'    => false,
@@ -51,38 +90,4 @@ if ( ! function_exists( 'alify_register_cpt_teams' ) ) {
 		);
 	}
 }
-add_action( 'init', 'alify_register_cpt_teams' );
-
-if ( ! function_exists( 'alify_register_taxonomy_team_category' ) ) {
-	/**
-	 * Register the Team Category taxonomy (e.g. departments).
-	 */
-	function alify_register_taxonomy_team_category() {
-		register_taxonomy(
-			'team_category',
-			array( 'teams' ),
-			array(
-				'labels'            => array(
-					'name'              => esc_html__( 'Team Categories', 'alify' ),
-					'singular_name'     => esc_html__( 'Team Category', 'alify' ),
-					'search_items'      => esc_html__( 'Search Team Categories', 'alify' ),
-					'all_items'         => esc_html__( 'All Team Categories', 'alify' ),
-					'parent_item'       => esc_html__( 'Parent Team Category', 'alify' ),
-					'parent_item_colon' => esc_html__( 'Parent Team Category:', 'alify' ),
-					'edit_item'         => esc_html__( 'Edit Team Category', 'alify' ),
-					'update_item'       => esc_html__( 'Update Team Category', 'alify' ),
-					'add_new_item'      => esc_html__( 'Add New Team Category', 'alify' ),
-					'new_item_name'     => esc_html__( 'New Team Category Name', 'alify' ),
-					'menu_name'         => esc_html__( 'Categories', 'alify' ),
-				),
-				'hierarchical'      => true,
-				'public'            => true,
-				'show_ui'           => true,
-				'show_admin_column' => true,
-				'show_in_rest'      => true,
-				'rewrite'           => array( 'slug' => 'team-category', 'with_front' => false ),
-			)
-		);
-	}
-}
-add_action( 'init', 'alify_register_taxonomy_team_category' );
+add_action( 'init', 'alify_register_cpt_teams', 11 );

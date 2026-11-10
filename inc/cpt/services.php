@@ -51,4 +51,4 @@ if ( ! function_exists( 'alify_register_cpt_services' ) ) {
 		);
 	}
 }
-add_action( 'init', 'alify_register_cpt_services' );
+add_action( 'init', 'alify_register_cpt_services', 11 );

@@ -2,10 +2,49 @@
 /**
  * Case Studies custom post type + taxonomy.
  *
+ * URL structure:
+ * - Single:  /case-study/{post-slug}/
+ * - Archive: /case-studies/
+ * - Category:/case-studies/{category-slug}/   (category name in URL, no machine slugs)
+ *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
+
+if ( ! function_exists( 'alify_register_taxonomy_case_study_category' ) ) {
+	/**
+	 * Register the Case Study Category taxonomy.
+	 */
+	function alify_register_taxonomy_case_study_category() {
+		register_taxonomy(
+			'case_study_category',
+			array( 'case_studies' ),
+			array(
+				'labels'            => array(
+					'name'              => esc_html__( 'Case Study Categories', 'alify' ),
+					'singular_name'     => esc_html__( 'Case Study Category', 'alify' ),
+					'search_items'      => esc_html__( 'Search Case Study Categories', 'alify' ),
+					'all_items'         => esc_html__( 'All Case Study Categories', 'alify' ),
+					'parent_item'       => esc_html__( 'Parent Case Study Category', 'alify' ),
+					'parent_item_colon' => esc_html__( 'Parent Case Study Category:', 'alify' ),
+					'edit_item'         => esc_html__( 'Edit Case Study Category', 'alify' ),
+					'update_item'       => esc_html__( 'Update Case Study Category', 'alify' ),
+					'add_new_item'      => esc_html__( 'Add New Case Study Category', 'alify' ),
+					'new_item_name'     => esc_html__( 'New Case Study Category Name', 'alify' ),
+					'menu_name'         => esc_html__( 'Categories', 'alify' ),
+				),
+				'hierarchical'      => true,
+				'public'            => true,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_rest'      => true,
+				'rewrite'           => array( 'slug' => 'case-studies', 'with_front' => false ),
+			)
+		);
+	}
+}
+add_action( 'init', 'alify_register_taxonomy_case_study_category', 10 );
 
 if ( ! function_exists( 'alify_register_cpt_case_studies' ) ) {
 	/**
@@ -40,7 +79,7 @@ if ( ! function_exists( 'alify_register_cpt_case_studies' ) ) {
 				'show_in_menu'    => true,
 				'show_in_rest'    => true,
 				'query_var'       => true,
-				'rewrite'         => array( 'slug' => 'case-studies', 'with_front' => false ),
+				'rewrite'         => array( 'slug' => 'case-study', 'with_front' => false ),
 				'capability_type' => 'post',
 				'has_archive'     => 'case-studies',
 				'hierarchical'    => false,
@@ -51,38 +90,4 @@ if ( ! function_exists( 'alify_register_cpt_case_studies' ) ) {
 		);
 	}
 }
-add_action( 'init', 'alify_register_cpt_case_studies' );
-
-if ( ! function_exists( 'alify_register_taxonomy_case_study_category' ) ) {
-	/**
-	 * Register the Case Study Category taxonomy.
-	 */
-	function alify_register_taxonomy_case_study_category() {
-		register_taxonomy(
-			'case_study_category',
-			array( 'case_studies' ),
-			array(
-				'labels'            => array(
-					'name'              => esc_html__( 'Case Study Categories', 'alify' ),
-					'singular_name'     => esc_html__( 'Case Study Category', 'alify' ),
-					'search_items'      => esc_html__( 'Search Case Study Categories', 'alify' ),
-					'all_items'         => esc_html__( 'All Case Study Categories', 'alify' ),
-					'parent_item'       => esc_html__( 'Parent Case Study Category', 'alify' ),
-					'parent_item_colon' => esc_html__( 'Parent Case Study Category:', 'alify' ),
-					'edit_item'         => esc_html__( 'Edit Case Study Category', 'alify' ),
-					'update_item'       => esc_html__( 'Update Case Study Category', 'alify' ),
-					'add_new_item'      => esc_html__( 'Add New Case Study Category', 'alify' ),
-					'new_item_name'     => esc_html__( 'New Case Study Category Name', 'alify' ),
-					'menu_name'         => esc_html__( 'Categories', 'alify' ),
-				),
-				'hierarchical'      => true,
-				'public'            => true,
-				'show_ui'           => true,
-				'show_admin_column' => true,
-				'show_in_rest'      => true,
-				'rewrite'           => array( 'slug' => 'case-study-category', 'with_front' => false ),
-			)
-		);
-	}
-}
-add_action( 'init', 'alify_register_taxonomy_case_study_category' );
+add_action( 'init', 'alify_register_cpt_case_studies', 11 );
