@@ -1,0 +1,110 @@
+/**
+ * Section: Home FAQ (template-parts/home/faq.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Accessible accordion (grid-rows animation).
+ * Responsive rules live in this same file.
+ */
+
+.alify-faq {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-faq::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-03.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-faq .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-faq__list {
+	border-top: 1px solid rgba(18, 21, 28, 0.1);
+	margin-bottom: 2.5rem;
+}
+
+.alify-faq__item {
+	border-bottom: 1px solid rgba(18, 21, 28, 0.1);
+}
+
+.alify-faq__heading {
+	margin: 0;
+}
+
+.alify-faq__question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	width: 100%;
+	padding: 1.5rem 0.25rem;
+	border: 0;
+	background: transparent;
+	text-align: left;
+	font-family: var(--font-primary);
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: var(--color-charcoal);
+	cursor: pointer;
+	transition: color 0.25s ease;
+}
+
+.alify-faq__question:hover {
+	color: var(--color-accent);
+}
+
+.alify-faq__icon {
+	color: var(--color-accent);
+	font-size: 1rem;
+	transition: transform 0.3s ease;
+}
+
+.alify-faq__item.is-open .alify-faq__icon {
+	transform: rotate(45deg);
+}
+
+.alify-faq__panel {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.35s ease;
+}
+
+.alify-faq__item.is-open .alify-faq__panel {
+	grid-template-rows: 1fr;
+}
+
+.alify-faq__answer {
+	overflow: hidden;
+	color: var(--color-charcoal);
+	opacity: 0.68;
+	line-height: 1.75;
+	padding: 0 0.25rem;
+}
+
+.alify-faq__item.is-open .alify-faq__answer {
+	padding-bottom: 1.5rem;
+}
+
+.alify-faq__all {
+	margin-top: 0.5rem;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-faq {
+		padding: 4.5rem 0;
+	}
+
+	.alify-faq__question {
+		font-size: 1.05rem;
+		padding: 1.25rem 0.125rem;
+	}
+}

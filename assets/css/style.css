@@ -86,6 +86,61 @@ body {
 	color: var(--color-white);
 }
 
+/* Forms (shared by the quote/contact forms). */
+.alify-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
+}
+
+.alify-form__label {
+	display: block;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--color-charcoal);
+	margin-bottom: 0.5rem;
+}
+
+.alify-form__input {
+	width: 100%;
+	padding: 0.875rem 1.125rem;
+	border: 1px solid rgba(18, 21, 28, 0.14);
+	border-radius: 0.5rem;
+	background-color: var(--color-white);
+	color: var(--color-charcoal);
+	font-family: var(--font-primary);
+	font-size: 1rem;
+	transition: border-color 0.25s ease;
+}
+
+.alify-form__input:focus {
+	outline: 2px solid var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+textarea.alify-form__input {
+	min-height: 8.5rem;
+	resize: vertical;
+}
+
+.alify-form__submit {
+	align-self: flex-start;
+	border: 0;
+	cursor: pointer;
+}
+
+.alify-btn--dark {
+	background-color: var(--color-charcoal);
+	color: var(--color-white);
+}
+
+.alify-btn--dark:hover,
+.alify-btn--dark:focus {
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	transform: translateY(-2px);
+}
+
 /* Screen-reader-only text (used with Font Awesome icons in forms/menu). */
 .screen-reader-text {
 	position: absolute !important;

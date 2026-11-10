@@ -32,6 +32,7 @@ require ALIFY_DIR . '/inc/customizer.php';  // Customizer theme options.
 require ALIFY_DIR . '/inc/rewrites.php';    // Permalink/rewrite flushing.
 require ALIFY_DIR . '/inc/page-setup.php';  // Default pages, menus, reading settings.
 require ALIFY_DIR . '/inc/forms/newsletter.php'; // Newsletter form handling.
+require ALIFY_DIR . '/inc/forms/quote.php';     // Quick quote form handling.
 require ALIFY_DIR . '/inc/seo.php';         // SEO: sitemap hygiene.
 require ALIFY_DIR . '/inc/security.php';    // Security hardening.
 

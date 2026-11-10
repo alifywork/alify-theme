@@ -1,0 +1,90 @@
+/**
+ * Section: Home Contact CTA (template-parts/home/contact-cta.php).
+ * Dark section with the white quote form card.
+ * Responsive rules live in this same file.
+ */
+
+.alify-contact-cta {
+	background-color: var(--color-charcoal);
+	padding: 6.5rem 0;
+}
+
+.alify-contact-cta__text {
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 1.05rem;
+	line-height: 1.75;
+	max-width: 42ch;
+	margin: -1.5rem 0 2.25rem;
+}
+
+.alify-contact-cta__info {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
+}
+
+.alify-contact-cta__info li {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	color: var(--color-white);
+}
+
+.alify-contact-cta__info i {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 50%;
+	background-color: rgba(224, 90, 58, 0.14);
+	color: var(--color-accent);
+}
+
+.alify-contact-cta__info a {
+	color: var(--color-white);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.alify-contact-cta__info a:hover {
+	color: var(--color-amber-light);
+}
+
+.alify-contact-cta__card {
+	background-color: var(--color-white);
+	border-radius: 1.25rem;
+	padding: 2.5rem;
+}
+
+.alify-contact-cta__card .alify-form__submit {
+	margin-top: 0.5rem;
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.alify-contact-cta__text {
+		margin-top: -1rem;
+	}
+
+	.alify-contact-cta__card {
+		margin-top: 2.75rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-contact-cta {
+		padding: 4.5rem 0;
+	}
+
+	.alify-contact-cta__card {
+		padding: 1.75rem 1.25rem;
+	}
+
+	.alify-contact-cta__card .alify-form__submit {
+		width: 100%;
+	}
+}

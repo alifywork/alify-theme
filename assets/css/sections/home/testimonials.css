@@ -1,0 +1,136 @@
+/**
+ * Section: Home Testimonials (template-parts/home/testimonials.php).
+ * Dark section — auto-play slider (scroll-snap track + arrows).
+ * Responsive rules live in this same file.
+ */
+
+.alify-testimonials {
+	background-color: var(--color-charcoal);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-testimonials__nav {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: 1.5rem;
+}
+
+.alify-testimonials__arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: transparent;
+	color: var(--color-white);
+	font-size: 1.05rem;
+	cursor: pointer;
+	transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.alify-testimonials__arrow:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.alify-testimonials__viewport {
+	margin-top: 3rem;
+	overflow-x: auto;
+	scrollbar-width: none;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+
+.alify-testimonials__viewport::-webkit-scrollbar {
+	display: none;
+}
+
+.alify-testimonials__track {
+	display: flex;
+	gap: 1.75rem;
+	padding: 0 1.5rem;
+	width: max-content;
+}
+
+.alify-testimonial {
+	flex: 0 0 auto;
+	width: min(85vw, 34rem);
+	scroll-snap-align: start;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 1rem;
+	padding: 2.25rem;
+}
+
+.alify-testimonial__quote-icon {
+	color: var(--color-accent);
+	font-size: 1.5rem;
+}
+
+.alify-testimonial__quote {
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 1.2rem;
+	line-height: 1.75;
+	margin: 1.25rem 0 1.75rem;
+}
+
+.alify-testimonial__author {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.alify-testimonial__avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 50%;
+	background-color: var(--color-accent);
+	color: var(--color-white);
+	font-weight: 700;
+}
+
+.alify-testimonial__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.alify-testimonial__meta strong {
+	color: var(--color-white);
+}
+
+.alify-testimonial__meta span {
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 0.9rem;
+}
+
+/* Desktop. */
+@media (min-width: 992px) {
+	.alify-testimonials__track {
+		padding: 0 6vw;
+	}
+
+	.alify-testimonial {
+		width: 38rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-testimonials {
+		padding: 4.5rem 0;
+	}
+
+	.alify-testimonial {
+		padding: 1.75rem;
+	}
+
+	.alify-testimonial__quote {
+		font-size: 1.05rem;
+	}
+}
