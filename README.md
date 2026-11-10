@@ -41,6 +41,11 @@ ALIFY — WordPress theme.
    and template code must be written per section/use-case, not one-size-fits-all.
 8. **Blog uses WordPress's default Posts** (the built-in post type — no custom
    post type for blogs): blog listing `home.php`, blog single `single-post.php`.
+9. **Image usage rules** (every page uses different images, but these rules
+   always apply):
+   - **White-background sections** → `ripplewave` images as the background.
+   - **Hero sections** → `neonline` images.
+   - `waveline` images → use sparingly, only where strictly necessary.
 
 ## Structure
 
