@@ -1,0 +1,89 @@
+/**
+ * Section: Thank You (page-thank-you.php).
+ * Custom CSS only — Bootstrap is used for the grid (container/row/col) alone.
+ * Responsive rules live in this same file (project guideline #6).
+ */
+
+.alify-thank-you {
+	display: flex;
+	align-items: center;
+	min-height: 70vh;
+	padding: 5rem 0;
+	text-align: center;
+}
+
+.alify-thank-you__inner {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.alify-thank-you__icon {
+	font-size: 4rem;
+	line-height: 1;
+	color: var(--alify-accent, #0d6efd);
+	margin-bottom: 1.5rem;
+}
+
+.alify-thank-you__title {
+	font-size: 2.25rem;
+	font-weight: 700;
+	margin: 0 0 1rem;
+	color: #1a1a2e;
+}
+
+.alify-thank-you__content {
+	font-size: 1.125rem;
+	line-height: 1.7;
+	color: #555;
+	margin-bottom: 2.25rem;
+}
+
+.alify-thank-you__content p {
+	margin: 0 0 1rem;
+}
+
+.alify-thank-you__content p:last-child {
+	margin-bottom: 0;
+}
+
+/* Custom buttons (Bootstrap button classes are not used). */
+.alify-btn {
+	display: inline-block;
+	padding: 0.875rem 2.25rem;
+	border-radius: 0.375rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.alify-btn--primary {
+	background-color: var(--alify-accent, #0d6efd);
+	color: #ffffff;
+}
+
+.alify-btn--primary:hover,
+.alify-btn--primary:focus {
+	background-color: #0b5ed7;
+	color: #ffffff;
+	transform: translateY(-2px);
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-thank-you {
+		min-height: 60vh;
+		padding: 3.5rem 0;
+	}
+
+	.alify-thank-you__icon {
+		font-size: 3rem;
+	}
+
+	.alify-thank-you__title {
+		font-size: 1.75rem;
+	}
+
+	.alify-thank-you__content {
+		font-size: 1rem;
+	}
+}

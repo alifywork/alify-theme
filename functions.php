@@ -27,6 +27,7 @@ require ALIFY_DIR . '/inc/widgets.php';     // Widget areas.
 require ALIFY_DIR . '/inc/image-sizes.php'; // Custom image sizes.
 require ALIFY_DIR . '/inc/excerpts.php';    // Excerpt length and read-more.
 require ALIFY_DIR . '/inc/template-tags.php'; // Reusable template tags.
+require ALIFY_DIR . '/inc/helpers.php';       // Generic helpers (thank-you URL, ...).
 require ALIFY_DIR . '/inc/enqueue.php';     // Styles and scripts.
 require ALIFY_DIR . '/inc/customizer.php';  // Customizer theme options.
 require ALIFY_DIR . '/inc/rewrites.php';    // Permalink/rewrite flushing.
