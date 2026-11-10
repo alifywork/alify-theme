@@ -21,6 +21,7 @@ define( 'ALIFY_URI', get_template_directory_uri() );
  * Modular includes — one concern per file.
  */
 require ALIFY_DIR . '/inc/setup.php';       // Theme supports and content width.
+require ALIFY_DIR . '/inc/editor.php';      // Classic Editor (Gutenberg disabled).
 require ALIFY_DIR . '/inc/menus.php';       // Navigation menu locations.
 require ALIFY_DIR . '/inc/widgets.php';     // Widget areas.
 require ALIFY_DIR . '/inc/image-sizes.php'; // Custom image sizes.

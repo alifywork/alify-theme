@@ -38,24 +38,14 @@ if ( ! function_exists( 'alify_setup' ) ) {
 			array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' )
 		);
 
-		// Wide and full-width block alignment.
-		add_theme_support( 'align-wide' );
-
 		// Responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
 
-		// Block editor extras: front-end block styles.
-		add_theme_support( 'wp-block-styles' );
-
-		// Load the theme stylesheet into the block editor.
-		add_theme_support( 'editor-styles' );
+		// Style the Classic Editor content (Gutenberg is disabled — inc/editor.php).
 		add_editor_style( 'assets/css/style.css' );
 
 		// Live-preview widgets in the Customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Block-based widgets.
-		add_theme_support( 'widgets-block-editor' );
 
 		// Max content width in pixels.
 		if ( ! isset( $GLOBALS['content_width'] ) ) {

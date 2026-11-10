@@ -17,6 +17,29 @@ ALIFY — WordPress theme.
    - Every PHP file starts with `defined( 'ABSPATH' ) || exit;`.
    - Hardening rules live in `inc/security.php` only.
 
+## Project guidelines (entire development phase)
+
+1. **Gutenberg is disabled** — Classic Editor everywhere (posts, pages, CPTs)
+   and the classic widgets screen (`inc/editor.php`). Do not add block-editor
+   code or block-specific theme supports.
+2. **No page builders.** Pages are built with **ACF Pro**: page sections and
+   the fields inside them. Always escape ACF output —
+   `esc_html( get_field( 'x' ) )`, `esc_url( get_field( 'x' ) )`,
+   `wp_kses_post( get_field( 'x' ) )` — never raw `the_field()`.
+3. **Bootstrap is grid-only.** Use only `container` / `container-fluid`, `row`
+   and `col-*` (inside a plain `<section>`). ALL other CSS is custom and lives
+   in per-section files.
+4. **GSAP** is the animation engine: ScrollSmoother for smooth scrolling,
+   scroll-triggered text/section reveals, light parallax — only where needed.
+5. **Icons: Font Awesome** (`assets/icons`).
+6. **One section = one CSS file + one JS file.** Each section's CSS (including
+   its responsive rules) and JS live in their own files, organized under
+   `assets/css/sections/` and `assets/js/sections/` — never dump section code
+   into `style.css` / `main.js`.
+7. **Data mostly comes from CPTs.** The same data renders per context:
+   cards/grids on archive pages, sliders/tabs/stacks on the home page. Query
+   and template code must be written per section/use-case, not one-size-fits-all.
+
 ## Structure
 
 ```
