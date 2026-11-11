@@ -1,38 +1,21 @@
-/**
- * Section: Home Services (template-parts/home/services.php).
- * White background section — ripplewave imagery (image rule #9).
- * Responsive rules live in this same file.
- */
+/* =============================================================
+   ALIFY — Home services section (numbered hover-swap list)
+   ============================================================= */
 
 .alify-services {
 	position: relative;
+	padding: var(--section-y) 0;
 	background-color: var(--color-white);
-	padding: 6rem 0;
-	overflow: hidden;
-}
-
-.alify-services::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: url("../../../images/ripplewave/ripplewave-08.webp") center/cover no-repeat;
-	opacity: 0.08;
-	pointer-events: none;
-}
-
-.alify-services .container {
-	position: relative;
-	z-index: 1;
-}
-
-.alify-section-title {
-	margin-bottom: 3rem;
+	background-image: url("../../../images/ripplewave/ripplewave-08.webp");
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: 560px;
 }
 
 .alify-services__list {
-	list-style: none;
 	margin: 0;
 	padding: 0;
+	list-style: none;
 	border-top: 1px solid rgba(18, 21, 28, 0.1);
 }
 
@@ -41,74 +24,81 @@
 }
 
 .alify-service-row__link {
-	display: flex;
+	display: grid;
+	grid-template-columns: 3.4rem minmax(0, 1fr) auto;
 	align-items: center;
-	gap: 1.5rem;
-	padding: 1.5rem 0.25rem;
+	gap: 1.25rem;
+	padding: 30px 18px;
+	border-radius: var(--radius-md);
 	text-decoration: none;
-	transition: padding 0.3s ease, background-color 0.3s ease;
+	transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.alify-service-row__link:hover,
+.alify-service-row.is-active .alify-service-row__link {
+	background-color: var(--color-secondary);
+	transform: translateX(6px);
 }
 
 .alify-service-row__num {
-	font-size: 0.9rem;
+	font-family: var(--font-primary);
+	font-size: 0.88rem;
 	font-weight: 700;
+	letter-spacing: 0.08em;
 	color: var(--color-accent);
-	min-width: 2.25rem;
 }
 
 .alify-service-row__body {
-	display: flex;
-	flex-direction: column;
-	gap: 0.35rem;
-	flex: 1;
+	display: block;
 	min-width: 0;
 }
 
 .alify-service-row__name {
-	font-size: clamp(1.25rem, 2vw, 1.65rem);
-	font-weight: 600;
+	display: block;
+	font-family: var(--font-primary);
+	font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+	font-weight: 720;
+	line-height: 1.22;
+	letter-spacing: -0.022em;
 	color: var(--color-charcoal);
-	transition: color 0.25s ease;
+	transition: color var(--dur-fast) var(--ease-out);
+}
+
+.alify-service-row__link:hover .alify-service-row__name,
+.alify-service-row.is-active .alify-service-row__name {
+	color: var(--color-accent);
 }
 
 .alify-service-row__desc {
-	color: var(--color-charcoal);
-	opacity: 0.6;
+	display: block;
+	margin-top: 0.45rem;
+	font-family: var(--font-primary);
 	font-size: 0.95rem;
 	line-height: 1.6;
+	color: rgba(18, 21, 28, 0.6);
 }
 
 .alify-service-row__arrow {
-	color: var(--color-charcoal);
-	opacity: 0.35;
-	font-size: 1.25rem;
-	transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+	font-size: 1.15rem;
+	color: rgba(18, 21, 28, 0.35);
+	transition: color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
 
-.alify-service-row.is-active .alify-service-row__link,
-.alify-service-row:hover .alify-service-row__link {
-	padding-left: 1rem;
-}
-
-.alify-service-row.is-active .alify-service-row__name,
-.alify-service-row:hover .alify-service-row__name {
+.alify-service-row__link:hover .alify-service-row__arrow,
+.alify-service-row.is-active .alify-service-row__arrow {
 	color: var(--color-accent);
+	transform: translateX(6px);
 }
 
-.alify-service-row.is-active .alify-service-row__arrow,
-.alify-service-row:hover .alify-service-row__arrow {
-	transform: translateX(0.5rem);
-	opacity: 1;
-	color: var(--color-accent);
-}
+/* Hover-swap preview image. */
 
 .alify-services__preview {
-	position: relative;
-	border-radius: 0.75rem;
+	position: sticky;
+	top: 120px;
 	overflow: hidden;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-lg);
 	aspect-ratio: 4 / 5;
-	max-width: 460px;
-	margin-left: auto;
 }
 
 .alify-services__preview img {
@@ -117,23 +107,24 @@
 	object-fit: cover;
 }
 
-/* Responsive. */
 @media (max-width: 991.98px) {
-	.alify-services {
-		padding: 4.5rem 0;
-	}
-
 	.alify-services__preview {
 		display: none;
 	}
 
-	.alify-section-title {
-		margin-bottom: 2rem;
+	.alify-service-row__link {
+		grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+		padding: 24px 12px;
 	}
 }
 
-@media (max-width: 575.98px) {
-	.alify-service-row__desc {
-		display: none;
+@media (max-width: 768px) {
+	.alify-services {
+		padding: 72px 0;
+	}
+
+	.alify-service-row__link:hover,
+	.alify-service-row.is-active .alify-service-row__link {
+		transform: none;
 	}
 }
