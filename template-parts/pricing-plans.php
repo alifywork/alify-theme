@@ -196,16 +196,18 @@ if ( ! is_wp_error( $alify_plans_terms ) && ! empty( $alify_plans_terms ) ) {
 						'includes' => array(),
 					);
 
-				$alify_plans_teaser = alify_field( 'pricing_features', $alify_plans_def['teaser'] );
+				$alify_plans_teaser = alify_field( 'features', $alify_plans_def['teaser'] );
 				if ( ! is_array( $alify_plans_teaser ) ) {
 					$alify_plans_teaser = $alify_plans_def['teaser'];
 				}
 
+				$alify_plans_highlight = (bool) ( function_exists( 'get_field' ) && get_field( 'plan_highlight' ) );
+
 				$alify_plans_plans[] = array(
 					'title'    => get_the_title(),
-					'amount'   => (string) alify_field( 'pricing_amount', $alify_plans_def['amount'] ),
-					'note'     => (string) alify_field( 'pricing_note', $alify_plans_def['note'] ),
-					'badge'    => (string) alify_field( 'pricing_badge', $alify_plans_def['badge'] ),
+					'amount'   => (string) alify_field( 'price', $alify_plans_def['amount'] ),
+					'note'     => (string) alify_field( 'price_note', $alify_plans_def['note'] ),
+					'badge'    => (string) alify_field( 'pricing_badge', $alify_plans_highlight ? __( 'Most Popular', 'alify' ) : $alify_plans_def['badge'] ),
 					'teaser'   => $alify_plans_teaser,
 					'includes' => $alify_plans_def['includes'],
 				);
@@ -277,7 +279,15 @@ if ( empty( $alify_plans_groups ) ) {
 							<?php endif; ?>
 							<ul class="alify-plan-card__list">
 								<?php foreach ( (array) $alify_plans_plan['teaser'] as $alify_plans_feature ) : ?>
-									<li><?php echo esc_html( $alify_plans_feature ); ?></li>
+									<?php
+									$alify_plans_feature_text = is_array( $alify_plans_feature )
+										? ( isset( $alify_plans_feature['feature'] ) ? (string) $alify_plans_feature['feature'] : '' )
+										: (string) $alify_plans_feature;
+									if ( '' === trim( $alify_plans_feature_text ) ) {
+										continue;
+									}
+									?>
+									<li><?php echo esc_html( $alify_plans_feature_text ); ?></li>
 								<?php endforeach; ?>
 							</ul>
 							<a class="alify-btn alify-btn--dark alify-plan-card__cta" href="#quote-form">

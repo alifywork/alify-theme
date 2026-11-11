@@ -26,8 +26,8 @@ get_header();
 		'template-parts/page-hero',
 		null,
 		array(
-			'title'    => alify_field( 'projects_hero_title', __( 'Work That Makes A Difference', 'alify' ) ),
-			'subtitle' => alify_field( 'projects_hero_sub', __( 'A selection of projects delivered for startups and global brands across web, design, marketing and automation.', 'alify' ) ),
+			'title'    => alify_field( 'projects_hero_title', __( 'Work That Makes A Difference', 'alify' ), 'option' ),
+			'subtitle' => alify_field( 'projects_hero_sub', __( 'A selection of projects delivered for startups and global brands across web, design, marketing and automation.', 'alify' ), 'option' ),
 			'image'    => ALIFY_URI . '/assets/images/neonline/neonline-06.webp',
 		)
 	);
@@ -46,7 +46,8 @@ get_header();
 				'projects_cta_url',
 				( get_page_by_path( 'contact', OBJECT, 'page' ) instanceof WP_Post )
 					? (string) get_permalink( get_page_by_path( 'contact', OBJECT, 'page' ) )
-					: home_url( '/contact/' )
+					: home_url( '/contact/' ),
+				'option'
 			),
 		)
 	);

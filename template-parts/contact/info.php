@@ -7,8 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$alify_email = alify_field( 'contact_email', 'hello@alify.com' );
-$alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234' );
+$alify_email = alify_field( 'contact_email', 'hello@alify.com', 'option' );
+$alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234', 'option' );
 ?>
 
 <section class="alify-contact-info" id="alify-contact-info">
@@ -40,7 +40,7 @@ $alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234' );
 					<i class="fa-solid fa-clock alify-info-card__icon" aria-hidden="true"></i>
 					<h3 class="alify-info-card__title"><?php esc_html_e( 'Working Hours', 'alify' ); ?></h3>
 					<p class="alify-info-card__text">
-						<?php echo esc_html( alify_field( 'contact_hours', __( 'Monday - Friday, 9:00 AM - 6:00 PM (GMT)', 'alify' ) ) ); ?>
+						<?php echo esc_html( alify_field( 'contact_hours', __( 'Monday - Friday, 9:00 AM - 6:00 PM (GMT)', 'alify' ), 'option' ) ); ?>
 					</p>
 				</div>
 			</div>

@@ -26,8 +26,8 @@ get_header();
 		'template-parts/page-hero',
 		null,
 		array(
-			'title'    => alify_field( 'industries_hero_title', __( 'Industries We Serve', 'alify' ) ),
-			'subtitle' => alify_field( 'industries_hero_sub', __( 'Deep experience across the sectors that shape the global economy — tailored strategies, never templates.', 'alify' ) ),
+			'title'    => alify_field( 'industries_hero_title', __( 'Industries We Serve', 'alify' ), 'option' ),
+			'subtitle' => alify_field( 'industries_hero_sub', __( 'Deep experience across the sectors that shape the global economy — tailored strategies, never templates.', 'alify' ), 'option' ),
 			'image'    => ALIFY_URI . '/assets/images/neonline/neonline-10.webp',
 		)
 	);

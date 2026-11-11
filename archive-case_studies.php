@@ -26,8 +26,8 @@ get_header();
 		'template-parts/page-hero',
 		null,
 		array(
-			'title'    => alify_field( 'cases_hero_title', __( 'Success Stories, Backed By Data', 'alify' ) ),
-			'subtitle' => alify_field( 'cases_hero_sub', __( 'Real projects, real numbers. See how we have helped brands worldwide grow traffic, revenue and efficiency.', 'alify' ) ),
+			'title'    => alify_field( 'cases_hero_title', __( 'Success Stories, Backed By Data', 'alify' ), 'option' ),
+			'subtitle' => alify_field( 'cases_hero_sub', __( 'Real projects, real numbers. See how we have helped brands worldwide grow traffic, revenue and efficiency.', 'alify' ), 'option' ),
 			'image'    => ALIFY_URI . '/assets/images/neonline/neonline-08.webp',
 		)
 	);

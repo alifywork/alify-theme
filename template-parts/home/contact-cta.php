@@ -17,8 +17,8 @@ $alify_services = array(
 	'AI Automation',
 );
 
-$alify_email = alify_field( 'contact_email', 'hello@alify.com' );
-$alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234' );
+$alify_email = alify_field( 'contact_email', 'hello@alify.com', 'option' );
+$alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234', 'option' );
 ?>
 
 <section class="alify-contact-cta" id="alify-contact-cta">
@@ -28,7 +28,7 @@ $alify_phone = alify_field( 'contact_phone', '+1 (555) 000-1234' );
 			<div class="col-12 col-lg-5">
 				<p class="alify-section-eyebrow alify-section-eyebrow--light"><?php esc_html_e( 'Get In Touch', 'alify' ); ?></p>
 				<h2 class="alify-section-title alify-section-title--light">
-					<?php echo esc_html( alify_field( 'home_cta_title', __( 'Have A Project In Mind? Let’s Talk.', 'alify' ) ) ); ?>
+						<?php echo esc_html( alify_field( 'home_cta_title', __( 'Have A Project In Mind? Let’s Talk.', 'alify' ), 'option' ) ); ?>
 				</h2>
 				<p class="alify-contact-cta__text">
 					<?php esc_html_e( 'Tell us about your project and we will get back to you within one business day with next steps.', 'alify' ); ?>

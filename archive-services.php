@@ -30,8 +30,8 @@ get_header();
 		'template-parts/page-hero',
 		null,
 		array(
-			'title'    => alify_field( 'services_hero_title', __( 'Services That Power Your Growth', 'alify' ) ),
-			'subtitle' => alify_field( 'services_hero_sub', __( 'From web development to AI automation — everything your business needs to build, launch and scale, delivered by one global team.', 'alify' ) ),
+			'title'    => alify_field( 'services_hero_title', __( 'Services That Power Your Growth', 'alify' ), 'option' ),
+			'subtitle' => alify_field( 'services_hero_sub', __( 'From web development to AI automation — everything your business needs to build, launch and scale, delivered by one global team.', 'alify' ), 'option' ),
 			'image'    => ALIFY_URI . '/assets/images/neonline/neonline-04.webp',
 		)
 	);

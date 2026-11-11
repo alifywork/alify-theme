@@ -29,6 +29,7 @@ require ALIFY_DIR . '/inc/excerpts.php';    // Excerpt length and read-more.
 require ALIFY_DIR . '/inc/template-tags.php'; // Reusable template tags.
 require ALIFY_DIR . '/inc/enqueue.php';     // Styles and scripts.
 require ALIFY_DIR . '/inc/customizer.php';  // Customizer theme options.
+require ALIFY_DIR . '/inc/acf.php';         // ACF Pro field groups (local).
 require ALIFY_DIR . '/inc/rewrites.php';    // Permalink/rewrite flushing.
 require ALIFY_DIR . '/inc/page-setup.php';  // Default pages, menus, reading settings.
 require ALIFY_DIR . '/inc/forms/newsletter.php'; // Newsletter form handling.
