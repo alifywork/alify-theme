@@ -2,10 +2,17 @@
 /**
  * Single Team Member template.
  *
+ * Sections: member profile (photo/initials + role + name + bio), CTA band.
+ *
  * @package ALIFY
  */
 
 defined( 'ABSPATH' ) || exit;
+
+wp_enqueue_style( 'alify-team-profile', get_template_directory_uri() . '/assets/css/sections/team-profile.css', array( 'alify-main' ), ALIFY_VERSION );
+wp_enqueue_script( 'alify-team-profile', get_template_directory_uri() . '/assets/js/sections/team-profile.js', array( 'alify-main', 'gsap-splittext', 'gsap-scrolltrigger' ), ALIFY_VERSION, true );
+
+wp_enqueue_style( 'alify-cta-band', get_template_directory_uri() . '/assets/css/sections/cta-band.css', array( 'alify-main' ), ALIFY_VERSION );
 
 get_header();
 ?>
@@ -15,45 +22,25 @@ get_header();
 	<?php
 	while ( have_posts() ) :
 		the_post();
+
+		get_template_part( 'template-parts/team-profile' );
 		?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<header class="entry-header">
-				<h1 class="entry-title"><?php echo esc_html( get_the_title() ); ?></h1>
-				<div class="entry-meta">
-					<?php
-					alify_posted_on();
-					alify_posted_by();
-					?>
-				</div>
-			</header>
-
-			<?php alify_post_thumbnail(); ?>
-
-			<div class="entry-content">
-				<?php
-				the_content();
-				wp_link_pages(
-					array(
-						'before' => '<nav class="page-links">' . esc_html__( 'Pages:', 'alify' ),
-						'after'  => '</nav>',
-					)
-				);
-				?>
-			</div>
-
-			<footer class="entry-footer">
-				<?php alify_entry_terms( 'team_category' ); ?>
-				<?php alify_entry_footer(); ?>
-			</footer>
-
-		</article>
 		<?php
-	endwhile;
-	?>
+		get_template_part(
+			'template-parts/cta-band',
+			null,
+			array(
+				'title'       => __( 'Want This Team On Your Project?', 'alify' ),
+				'button_text' => __( 'Get a Free Quote', 'alify' ),
+				'button_url'  => home_url( '/contact/' ),
+			)
+		);
+		?>
+
+	<?php endwhile; ?>
 
 </main>
 
 <?php
-get_sidebar();
 get_footer();

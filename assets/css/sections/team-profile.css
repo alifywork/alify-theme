@@ -1,0 +1,142 @@
+/* =============================================================
+   ALIFY — Team member profile section (dark)
+   ============================================================= */
+
+.alify-team-profile {
+	position: relative;
+	padding: 140px 0 110px;
+	background-color: var(--color-charcoal);
+}
+
+.alify-team-profile__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 42px;
+	color: rgba(255, 255, 255, 0.7);
+	font-family: var(--font-primary);
+	font-size: 0.9rem;
+	font-weight: 550;
+	text-decoration: none;
+	transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.alify-team-profile__back:hover {
+	color: var(--color-white);
+	transform: translateX(-4px);
+}
+
+.alify-team-profile__top {
+	display: grid;
+	grid-template-columns: 320px minmax(0, 1fr);
+	gap: 56px;
+	align-items: center;
+	margin-bottom: 56px;
+}
+
+.alify-team-profile__media {
+	overflow: hidden;
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.06);
+	box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.alify-team-profile__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.alify-team-profile__initials {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, var(--color-accent), var(--color-amber-light));
+	color: var(--color-white);
+	font-family: var(--font-primary);
+	font-size: 4.2rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+.alify-team-profile__role {
+	display: inline-block;
+	margin-bottom: 18px;
+	padding: 7px 18px;
+	border-radius: 100px;
+	background: rgba(224, 90, 58, 0.18);
+	color: var(--color-amber-light);
+	font-family: var(--font-primary);
+	font-size: 0.85rem;
+	font-weight: 650;
+}
+
+.alify-team-profile__name {
+	margin: 0;
+	font-family: var(--font-primary);
+	font-size: clamp(2.15rem, 4.4vw, 3.45rem);
+	font-weight: 800;
+	line-height: 1.06;
+	letter-spacing: -0.035em;
+	color: var(--color-white);
+}
+
+.alify-team-profile__name .word {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.alify-team-profile__bio {
+	max-width: 760px;
+	font-size: 1.06rem;
+	line-height: 1.85;
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.alify-team-profile__bio > *:first-child {
+	margin-top: 0;
+}
+
+.alify-team-profile__bio p {
+	margin: 0 0 1.4em;
+}
+
+.alify-team-profile__bio h2,
+.alify-team-profile__bio h3 {
+	margin: 1.6em 0 0.6em;
+	font-family: var(--font-primary);
+	color: var(--color-white);
+}
+
+.alify-team-profile__bio a {
+	color: var(--color-amber-light);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+@media (max-width: 1024px) {
+	.alify-team-profile__top {
+		grid-template-columns: 240px minmax(0, 1fr);
+		gap: 36px;
+	}
+}
+
+@media (max-width: 768px) {
+	.alify-team-profile {
+		padding: 110px 0 72px;
+	}
+
+	.alify-team-profile__top {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
+
+	.alify-team-profile__media {
+		max-width: 280px;
+	}
+}
