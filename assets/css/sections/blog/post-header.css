@@ -1,0 +1,95 @@
+/* =============================================================
+   ALIFY — Blog single: article header (dark) + featured image
+   ============================================================= */
+
+.alify-post-header {
+	position: relative;
+	padding: 140px 0 0;
+	background-color: var(--color-charcoal);
+}
+
+.alify-post-header__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 34px;
+	color: rgba(255, 255, 255, 0.7);
+	font-family: var(--font-primary);
+	font-size: 0.9rem;
+	font-weight: 550;
+	text-decoration: none;
+	transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.alify-post-header__back:hover {
+	color: var(--color-white);
+	transform: translateX(-4px);
+}
+
+.alify-post-header__meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 22px;
+	font-family: var(--font-primary);
+	font-size: 0.88rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.alify-post-header__cat {
+	padding: 6px 14px;
+	border-radius: 100px;
+	background: rgba(224, 90, 58, 0.18);
+	color: var(--color-amber-light);
+	font-weight: 650;
+}
+
+.alify-post-header__title {
+	max-width: 900px;
+	margin: 0 0 56px;
+	font-family: var(--font-primary);
+	font-size: clamp(2.15rem, 4.6vw, 3.55rem);
+	font-weight: 800;
+	line-height: 1.08;
+	letter-spacing: -0.035em;
+	color: var(--color-white);
+}
+
+.alify-post-header__title .word {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.alify-post-header__media {
+	margin-top: -28px;
+	padding-bottom: 0;
+	transform: translateY(60px);
+}
+
+.alify-post-header__media img {
+	width: 100%;
+	max-height: 560px;
+	object-fit: cover;
+	border-radius: 22px;
+	box-shadow: 0 34px 80px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+	.alify-post-header {
+		padding-top: 110px;
+	}
+
+	.alify-post-header__title {
+		margin-bottom: 40px;
+	}
+
+	.alify-post-header__media {
+		transform: translateY(40px);
+	}
+
+	.alify-post-header__media img {
+		border-radius: 16px;
+	}
+}
