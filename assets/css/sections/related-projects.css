@@ -1,0 +1,59 @@
+/**
+ * Section: Related Projects (template-parts/related-projects.php).
+ * Dark section with project cards.
+ * Responsive rules live in this same file.
+ */
+
+.alify-related-projects {
+	background-color: var(--color-charcoal);
+	padding: 5.5rem 0;
+}
+
+.alify-related-projects__all {
+	margin-top: 1.5rem;
+}
+
+.alify-related-card {
+	margin-bottom: 1.5rem;
+}
+
+.alify-related-card__link {
+	display: block;
+	text-decoration: none;
+}
+
+.alify-related-card__media {
+	border-radius: 0.875rem;
+	overflow: hidden;
+	aspect-ratio: 16 / 10;
+	margin-bottom: 1.15rem;
+}
+
+.alify-related-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.alify-related-card__link:hover .alify-related-card__media img {
+	transform: scale(1.06);
+}
+
+.alify-related-card__name {
+	color: var(--color-white);
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 0;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-related-projects {
+		padding: 4rem 0;
+	}
+
+	.alify-related-projects__all {
+		width: 100%;
+	}
+}

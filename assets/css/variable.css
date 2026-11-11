@@ -1,0 +1,21 @@
+/**
+ * Variables - design tokens (colors + font families).
+ * Load first so every other stylesheet can use these custom properties.
+ */
+
+:root {
+	/* ---------- Colors ---------- */
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+	--color-primary: #0F3473;
+	--color-secondary: #F6F4F1;
+	--color-accent: #E05A3A;
+	--color-amber: #D98A2B;
+	--color-amber-light: #F4C778;
+	--color-teal: #0F8A73;
+	--color-charcoal: #12151C;
+
+	/* ---------- Fonts ---------- */
+	--font-primary: "Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+	--font-secondary: "Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}

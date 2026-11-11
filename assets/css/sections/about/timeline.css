@@ -1,0 +1,121 @@
+/**
+ * Section: About Timeline (template-parts/about/timeline.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Vertical timeline with a connecting line.
+ * Responsive rules live in this same file.
+ */
+
+.alify-timeline {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-timeline::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-05.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-timeline .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-timeline__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.alify-timeline__list::before {
+	content: "";
+	position: absolute;
+	left: 4.6rem;
+	top: 0.75rem;
+	bottom: 0.75rem;
+	width: 2px;
+	background: linear-gradient(180deg, var(--color-accent), rgba(224, 90, 58, 0.15));
+}
+
+.alify-timeline__item {
+	position: relative;
+	display: flex;
+	gap: 2.25rem;
+	padding: 1.15rem 0;
+}
+
+.alify-timeline__item::before {
+	content: "";
+	position: absolute;
+	left: 4.28rem;
+	top: 1.85rem;
+	width: 0.95rem;
+	height: 0.95rem;
+	border-radius: 50%;
+	background-color: var(--color-accent);
+	border: 3px solid var(--color-white);
+	box-shadow: 0 0 0 3px rgba(224, 90, 58, 0.2);
+}
+
+.alify-timeline__year {
+	min-width: 3.35rem;
+	font-size: 1.05rem;
+	font-weight: 700;
+	color: var(--color-accent);
+	padding-top: 0.85rem;
+}
+
+.alify-timeline__body {
+	margin-left: 1.75rem;
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 0.875rem;
+	padding: 1.35rem 1.6rem;
+	box-shadow: 0 12px 30px rgba(18, 21, 28, 0.05);
+	flex: 1;
+}
+
+.alify-timeline__name {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--color-charcoal);
+	margin: 0 0 0.5rem;
+}
+
+.alify-timeline__text {
+	color: var(--color-charcoal);
+	opacity: 0.65;
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-timeline {
+		padding: 4.5rem 0;
+	}
+
+	.alify-timeline__list::before {
+		left: 3.6rem;
+	}
+
+	.alify-timeline__item::before {
+		left: 3.28rem;
+	}
+
+	.alify-timeline__year {
+		min-width: 2.5rem;
+		font-size: 0.95rem;
+	}
+
+	.alify-timeline__body {
+		margin-left: 1.25rem;
+		padding: 1.15rem 1.15rem;
+	}
+}

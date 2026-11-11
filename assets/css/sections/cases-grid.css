@@ -1,0 +1,80 @@
+/**
+ * Section: Case Studies Grid (template-parts/cases-grid.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Cards carry stat badges.
+ * Responsive rules live in this same file.
+ */
+
+.alify-cases-grid {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-cases-grid::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../images/ripplewave/ripplewave-06.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-cases-grid .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-cases-grid .alify-case-card {
+	min-height: 24rem;
+}
+
+.alify-case-card__badge {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	z-index: 2;
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	background-color: var(--color-white);
+	border-radius: 999px;
+	padding: 0.625rem 1.15rem;
+	box-shadow: 0 12px 28px rgba(18, 21, 28, 0.18);
+}
+
+.alify-case-card__badge strong {
+	color: var(--color-accent);
+	font-size: 1.35rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.alify-case-card__badge em {
+	color: var(--color-charcoal);
+	opacity: 0.62;
+	font-style: normal;
+	font-size: 0.85rem;
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-cases-grid {
+		padding: 4.5rem 0;
+	}
+
+	.alify-cases-grid .alify-case-card {
+		min-height: 21rem;
+	}
+
+	.alify-case-card__badge {
+		top: 1rem;
+		right: 1rem;
+		padding: 0.5rem 0.9rem;
+	}
+
+	.alify-case-card__badge strong {
+		font-size: 1.15rem;
+	}
+}

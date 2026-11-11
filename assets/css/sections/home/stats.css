@@ -1,0 +1,107 @@
+/**
+ * Section: Home Stats (template-parts/home/stats.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Responsive rules live in this same file.
+ */
+
+.alify-stats {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 5.5rem 0 4.5rem;
+	overflow: hidden;
+}
+
+.alify-stats::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-01.webp") center/cover no-repeat;
+	opacity: 0.1;
+	pointer-events: none;
+}
+
+.alify-stats .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-stat {
+	text-align: center;
+	padding: 1rem 0.5rem;
+}
+
+.alify-stat__value {
+	display: block;
+	font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+	font-weight: 700;
+	color: var(--color-primary);
+	line-height: 1.1;
+}
+
+.alify-stat__label {
+	display: block;
+	margin-top: 0.5rem;
+	color: var(--color-charcoal);
+	opacity: 0.65;
+	font-weight: 500;
+}
+
+/* Marquee strip. */
+.alify-marquee {
+	position: relative;
+	z-index: 1;
+	margin-top: 4rem;
+	padding: 1.25rem 0;
+	border-top: 1px solid rgba(18, 21, 28, 0.08);
+	border-bottom: 1px solid rgba(18, 21, 28, 0.08);
+	overflow: hidden;
+}
+
+.alify-marquee__track {
+	display: flex;
+	gap: 2.5rem;
+	width: max-content;
+	animation: alify-marquee-scroll 28s linear infinite;
+}
+
+.alify-marquee__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 2.5rem;
+	white-space: nowrap;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--color-charcoal);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.alify-marquee__item i {
+	color: var(--color-accent);
+	font-size: 0.75rem;
+}
+
+@keyframes alify-marquee-scroll {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-stats {
+		padding: 4rem 0 3.5rem;
+	}
+
+	.alify-stat {
+		margin-bottom: 1.25rem;
+	}
+
+	.alify-marquee {
+		margin-top: 2.5rem;
+	}
+}

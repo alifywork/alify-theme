@@ -1,0 +1,88 @@
+/**
+ * Section: Service Overview (template-parts/service-overview.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Responsive rules live in this same file.
+ */
+
+.alify-service-overview {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-service-overview::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../images/ripplewave/ripplewave-02.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-service-overview .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-service-overview__content {
+	color: var(--color-charcoal);
+	opacity: 0.75;
+	line-height: 1.85;
+	font-size: 1.05rem;
+}
+
+.alify-service-overview__content p {
+	margin: 0 0 1.25rem;
+}
+
+.alify-service-overview__card {
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 2.25rem 2rem;
+	box-shadow: 0 18px 40px rgba(18, 21, 28, 0.07);
+}
+
+.alify-service-overview__card-title {
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--color-charcoal);
+	margin: 0 0 1.5rem;
+}
+
+.alify-service-overview__features {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+
+.alify-service-overview__features li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	color: var(--color-charcoal);
+	opacity: 0.82;
+	line-height: 1.6;
+}
+
+.alify-service-overview__features i {
+	color: var(--color-teal);
+	margin-top: 0.25rem;
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.alify-service-overview__card {
+		margin-top: 2.5rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-service-overview {
+		padding: 4.5rem 0;
+	}
+}

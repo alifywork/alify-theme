@@ -1,0 +1,38 @@
+/**
+ * Section: CTA Band (template-parts/cta-band.php).
+ * Dark banner with a single action button.
+ * Responsive rules live in this same file.
+ */
+
+.alify-cta-band {
+	background-color: var(--color-charcoal);
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	padding: 3.5rem 0;
+}
+
+.alify-cta-band__title {
+	color: var(--color-white);
+	font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+	font-weight: 700;
+	margin: 0;
+}
+
+.alify-cta-band__btn {
+	margin-top: 1.25rem;
+}
+
+/* Responsive. */
+@media (min-width: 992px) {
+	.alify-cta-band__btn {
+		display: block;
+		width: fit-content;
+		margin-left: auto;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-cta-band__btn {
+		width: 100%;
+	}
+}

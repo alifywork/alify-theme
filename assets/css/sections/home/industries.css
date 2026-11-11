@@ -1,0 +1,137 @@
+/**
+ * Section: Home Industries (template-parts/home/industries.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Responsive rules live in this same file.
+ */
+
+.alify-industries {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-industries::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-10.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-industries .container {
+	position: relative;
+	z-index: 1;
+}
+
+/* Chip marquee. */
+.alify-chip-marquee {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	margin: -1rem 0 3.5rem;
+}
+
+.alify-chip-marquee__track {
+	display: flex;
+	gap: 1rem;
+	width: max-content;
+	animation: alify-chip-scroll 32s linear infinite;
+}
+
+.alify-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.75rem 1.5rem;
+	border: 1px solid rgba(18, 21, 28, 0.12);
+	border-radius: 999px;
+	background-color: var(--color-white);
+	color: var(--color-charcoal);
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+@keyframes alify-chip-scroll {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* Industry cards. */
+.alify-industry-card {
+	display: block;
+	height: 100%;
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 1.75rem 1.5rem;
+	text-decoration: none;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+
+.alify-industry-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 22px 45px rgba(18, 21, 28, 0.1);
+	border-color: var(--color-accent);
+}
+
+.alify-industry-card__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	border-radius: 0.75rem;
+	background-color: rgba(224, 90, 58, 0.1);
+	color: var(--color-accent);
+	font-size: 1.35rem;
+	margin-bottom: 1.25rem;
+}
+
+.alify-industry-card__name {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: var(--color-charcoal);
+	margin: 0 0 0.625rem;
+}
+
+.alify-industry-card__desc {
+	color: var(--color-charcoal);
+	opacity: 0.62;
+	font-size: 0.925rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.alify-industry-card__arrow {
+	position: absolute;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	color: var(--color-accent);
+	opacity: 0;
+	transform: translateX(-0.5rem);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alify-industry-card:hover .alify-industry-card__arrow {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+/* Responsive. */
+@media (max-width: 767.98px) {
+	.alify-industries {
+		padding: 4.5rem 0;
+	}
+
+	.alify-chip-marquee {
+		margin-bottom: 2.5rem;
+	}
+}

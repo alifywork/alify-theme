@@ -1,0 +1,84 @@
+/**
+ * Section: About Story (template-parts/about/story.php).
+ * White background section — ripplewave image as background (image rule #9).
+ * Responsive rules live in this same file.
+ */
+
+.alify-story {
+	position: relative;
+	background-color: var(--color-white);
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.alify-story::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../../../images/ripplewave/ripplewave-04.webp") center/cover no-repeat;
+	opacity: 0.08;
+	pointer-events: none;
+}
+
+.alify-story .container {
+	position: relative;
+	z-index: 1;
+}
+
+.alify-story__text p {
+	color: var(--color-charcoal);
+	opacity: 0.72;
+	line-height: 1.85;
+	margin: 0 0 1.25rem;
+	font-size: 1.05rem;
+}
+
+.alify-story__stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+}
+
+.alify-story__stat {
+	background-color: var(--color-white);
+	border: 1px solid rgba(18, 21, 28, 0.08);
+	border-radius: 1rem;
+	padding: 1.75rem;
+	box-shadow: 0 16px 36px rgba(18, 21, 28, 0.06);
+}
+
+.alify-story__stat strong {
+	display: block;
+	font-size: 2.15rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	line-height: 1.1;
+}
+
+.alify-story__stat span {
+	display: block;
+	margin-top: 0.5rem;
+	color: var(--color-charcoal);
+	opacity: 0.62;
+}
+
+/* Responsive. */
+@media (max-width: 991.98px) {
+	.alify-story__stats {
+		margin-top: 2.5rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.alify-story {
+		padding: 4.5rem 0;
+	}
+
+	.alify-story__stat {
+		padding: 1.35rem 1.15rem;
+	}
+
+	.alify-story__stat strong {
+		font-size: 1.75rem;
+	}
+}
