@@ -65,7 +65,7 @@ $alify_default_testimonials = array(
 
 				$alify_initials = '';
 				foreach ( explode( ' ', (string) $alify_name ) as $alify_part ) {
-					$alify_initials .= '' !== $alify_part ? mb_strtoupper( mb_substr( $alify_part, 0, 1 ) ) : '';
+					$alify_initials .= '' !== $alify_part ? alify_upper( mb_substr( $alify_part, 0, 1 ) ) : '';
 				}
 				?>
 				<article class="alify-testimonial">

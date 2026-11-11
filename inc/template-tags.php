@@ -114,6 +114,20 @@ if ( ! function_exists( 'alify_field' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alify_upper' ) ) {
+	/**
+	 * Uppercase a string — works with or without the mbstring extension
+	 * (mb_strtoupper is not polyfilled by WordPress core).
+	 *
+	 * @param string $string Text to uppercase.
+	 * @return string Uppercased text.
+	 */
+	function alify_upper( $string ) {
+		$string = (string) $string;
+		return function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $string ) : strtoupper( $string );
+	}
+}
+
 if ( ! function_exists( 'alify_entry_terms' ) ) {
 	/**
 	 * Print linked terms of the given taxonomies for the current post.
