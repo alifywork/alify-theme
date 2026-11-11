@@ -26,6 +26,16 @@
 
 .alify-faq-strip__all {
 	margin-top: 28px;
+	/* Light section: the shared secondary button is white-on-dark — override locally. */
+	border: 1px solid rgba(18, 21, 28, 0.28);
+	color: var(--color-charcoal);
+}
+
+.alify-faq-strip__all:hover,
+.alify-faq-strip__all:focus {
+	background: var(--color-charcoal);
+	border-color: var(--color-charcoal);
+	color: var(--color-white);
 }
 
 .alify-faq-strip__item {

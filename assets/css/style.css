@@ -36,6 +36,8 @@ body {
 	transform: translateY(-2px);
 }
 
+/* View All button on dark backgrounds (default). On light sections use a
+   section-local override — see pricing-faq.css for the pattern. */
 .alify-btn--secondary {
 	background-color: transparent;
 	color: var(--color-white);
